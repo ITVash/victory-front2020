@@ -8,13 +8,14 @@
 	overflow: hidden !important;
 }
 
-.card-slider .card-slider__button_prev {
+.description .card-slider__button_prev {
 	position: absolute;
 	left: 0;
 	cursor: pointer;
+	
 }
 
-.card-slider .card-slider__button_next {
+.description .card-slider__button_next {
 	position: absolute;
 	right: 0;
 	cursor: pointer;
