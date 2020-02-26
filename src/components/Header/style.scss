@@ -236,6 +236,9 @@
 	.lang-switcher .lang-switcher__lang {
 		font-size: 24px;
 	}
+	.slider__gradient-overlay {
+		font-size: 24px !important;
+	}
 }
 
 @media (max-width: 800px) {
@@ -246,6 +249,9 @@
 		display: flex;
 		flex-direction: column-reverse;
 		justify-content: space-between;
+	}
+	.slider__gradient-overlay {
+		font-size: 20px !important;
 	}
 
 	.nav .nav__section_2 {
@@ -271,6 +277,11 @@
 
 	.nav {
 		padding: 20px 0;
+	}
+}
+@media (max-width: 500px) {
+	.slider__gradient-overlay {
+		font-size: 14px !important;
 	}
 }
 //@import url("https://fonts.googleapis.com/css?family=Exo+2&display=swap");
@@ -471,37 +482,97 @@
 	height: 100%;
 
 	overflow: hidden;
+	position: relative;
 	&.second {
 		display: none;
 	}
 }
+/*.slick-list, .slick-track {
+	width: 100%;
+	height: 100%;
+}
+.ant-carousel, .slick-slide {
+  width: 100%;
+	height: 100%;
 
-.slider .slider__slide {
+	overflow: hidden;
+	position: relative;
+	& img {
+		height: 100%;
+		width: 100%;
+
+		object-fit: cover;
+		background-position: center;
+	}
+}*/
+.slider .slick-slider {
+	width: 100%;
+	height: 100% !important;
+
+	overflow: hidden;
+	position: relative;
+	.slick-list, .slick-track, div {
+		height: 100% !important;
+	}
+}
+
+.slick-slide .slider .slider__slide {
 	height: 100%;
 	width: 100%;
 
 	object-fit: cover;
 	background-position: center;
 }
+.slick-dots {
+	position: absolute;
+	bottom: 25px;
+	z-index: 2;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	& li {
+		width: 20px;
+		height: 20px;
 
+		border-radius: 50%;
+		border: 2px solid white;
+		background: grey;
+
+		margin-right: 10px;
+		cursor: pointer;
+		& button {
+			background: none!important;
+			opacity: 0;
+		}
+		&.slick-active {
+			background: #df650c;
+			button {
+				background: none;
+				&::before {
+					content: '';
+				}
+			}
+		}
+	}
+}
 .slider-buttons {
 	position: absolute;
 	bottom: 25px;
-
+	z-index: 2;
 	width: 100%;
 	display: flex;
 	justify-content: center;
 }
 
 .slider-buttons .slider-buttons__button {
-	width: 15px;
-	height: 15px;
+	width: 20px;
+	height: 20px;
 
 	border-radius: 50%;
 	border: 2px solid white;
 	background: grey;
 
-	margin-right: 7px;
+	margin-right: 10px;
 	cursor: pointer;
 }
 
@@ -511,4 +582,27 @@
 
 .slider-buttons .slider-buttons__button_active {
 	background: #df650c;
+}
+
+.slider .slider__gradient-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	height: 100%;
+
+	z-index: 1;
+	background: linear-gradient(180deg, rgba(223, 101, 12, 0.6) 0%, rgba(0, 0, 0, 0.5) 100%);
+	color: #FFF;
+	display: flex;
+	text-align: center;
+	font-family: 'Exo 2';
+	font-size: 36px;
+	font-weight: 600;
+	justify-content: center;
+	align-items: center;
+	span {
+		width: 75%;
+	}
 }

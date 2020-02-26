@@ -3,11 +3,23 @@ import { Select } from "antd"
 import classNames from "classnames"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
+import Slider from 'react-slick'
 import "./style.scss"
 
 const { Option } = Select
 
 const Header = props => {
+	const settings = {
+		dots: true,
+		infinite: true,
+		autoplay: true,
+		speed: 500,
+		autoplaySpeed: 10000,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		adaptiveHeight: true
+	}
 	const { second } = props
 	const [open, setOpen] = useState(false)
 	return (
@@ -103,14 +115,23 @@ const Header = props => {
 				</div>
 			</div>
 
-			<div className={classNames('slider', {'second': second})}>
-				<img src='img/slide.png' alt='' className='slider__slide' />
-
-				<div className='slider-buttons'>
-					<span className='slider-buttons__button slider-buttons__button_active'></span>
-					<span className='slider-buttons__button'></span>
-					<span className='slider-buttons__button'></span>
-				</div>
+			<div className={classNames('slider', { 'second': second })}>
+				<Slider {...settings}>
+					<div className='slider'>
+					<div className="slider__gradient-overlay"><span>Союзный общественно-патриотический проект <br/>
+“НАША ВЕЛИКАЯ ПОБЕДА”</span></div>
+					<img src='img/1.jpg' alt='' className='slider__slide' />
+					</div>
+					<div className='slider'>
+					<div className="slider__gradient-overlay"></div>
+					<img src='img/2.jpg' alt='' className='slider__slide' />
+					</div>
+					<div className='slider'>
+					<div className="slider__gradient-overlay"><span>Союзный общественно-патриотический проект <br/>
+“НАША ВЕЛИКАЯ ПОБЕДА”</span></div>
+					<img src='img/3.png' alt='' className='slider__slide' />
+					</div>
+				</Slider>
 			</div>
 		</header>
 	)

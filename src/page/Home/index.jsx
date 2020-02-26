@@ -211,54 +211,13 @@ const Home = props => {
 		<>
 			<Header />
 			<Section type='description' title='О проекте' color='orange'>
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-				tempora aliquam debitis, numquam corporis nemo molestiae aperiam. Illum
-				necessitatibus, ipsa explicabo vel asperiores alias reiciendis excepturi
-				laudantium dolor quo.
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-					tempora aliquam debitis, numquam corporis nemo molestiae aperiam.
-					Illum necessitatibus, ipsa explicabo vel asperiores alias reiciendis
-					excepturi laudantium dolor quo.
-				</p>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-					tempora aliquam debitis, numquam corporis nemo molestiae aperiam.
-					Illum necessitatibus, ipsa explicabo vel asperiores alias reiciendis
-					excepturi laudantium dolor quo.
-				</p>
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-				tempora aliquam debitis, numquam corporis nemo molestiae aperiam. Illum
-				necessitatibus, ipsa explicabo vel asperiores alias reiciendis excepturi
-				laudantium dolor quo.
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-					tempora aliquam debitis, numquam corporis nemo molestiae aperiam.
-					Illum necessitatibus, ipsa explicabo vel asperiores alias reiciendis
-					excepturi laudantium dolor quo.
-				</p>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-					tempora aliquam debitis, numquam corporis nemo molestiae aperiam.
-					Illum necessitatibus, ipsa explicabo vel asperiores alias reiciendis
-					excepturi laudantium dolor quo.
-				</p>
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-				tempora aliquam debitis, numquam corporis nemo molestiae aperiam. Illum
-				necessitatibus, ipsa explicabo vel asperiores alias reiciendis excepturi
-				laudantium dolor quo.
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-					tempora aliquam debitis, numquam corporis nemo molestiae aperiam.
-					Illum necessitatibus, ipsa explicabo vel asperiores alias reiciendis
-					excepturi laudantium dolor quo.
-				</p>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-					tempora aliquam debitis, numquam corporis nemo molestiae aperiam.
-					Illum necessitatibus, ipsa explicabo vel asperiores alias reiciendis
-					excepturi laudantium dolor quo.
-				</p>
+				<p>Проект «Наша Великая Победа» начал свое развитие с 2012 года.</p>
+				<p>Зародился проект у активистов русских организаций Крыма, которые предложили весной 2012 года проводить ежегодно, в формате союзно-патриотической акции, - в период с 17 марта (дата Всесоюзного референдума 1991 года) по 9 мая, - эстафету памятных торжественных мероприятий, посвященных Победе Советского народа над немецко-фашистскими захватчиками.</p>
+				<p>В 2012 – 2013 гг. Проект проводился при поддержке Комитета Государственной Думы Российской Федерации по делам СНГ и связями с соотечественниками. В 2014 – 2015 гг. проект поддержал Комитет Совета Федерации по обороне и безопасности. Также поддержку проекта осуществляли: Международный союз «Боевое Братство», Всероссийское созидательное движение «Русский Лад», КПРФ, Партия «Единая Россия», Партия Регионов, Компартия Украины, Компартия Беларуси, Союз городов воинской славы.</p>
+				<p>Весной 2020 года эстафету памятных торжественных мероприятий проекта «Наша Великая Победа» будет проходить в рамках организации масштабного союзно-патриотического автомобильного марша-эстафеты, с протяженностью около 25 тыс. км. По традиции,17 марта старт проекта начнется в городе-герое Севастополе, у подножья величественного монумента – «Памятника Солдату и Матросу».</p>
+				<p>Каждый город – участник союзного проекта, символическим образом передает «эстафету памяти» следующему городу по маршруту следования.</p>
+				<p>Марш-эстафета будет проходить в 110 городах, расположенных на территории России, Республики Беларусь, Донецкой и Луганской народных республик, Республики Абхазия, Республики Южная Осетия, Приднестровской Молдавской Республики, Республики Казахстан, Азербайджанской Республики.</p>
+				<p>Марш-эстафета проекта закончится на XIV Союзном патриотическом лагере-форуме "Молодая Гвардия. Крым. Донузлав - 2020" 16 июля - 12 августа 2020 года.</p>
 			</Section>
 			<Section type='map' title='Схема маршрута' color='black'>
 				<Maps />
