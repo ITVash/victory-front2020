@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2:300,400,500,600,700,800,900&display=swap&subset=cyrillic');
+* {
+	margin: 0;
+	padding: 0;
+
+	font-family: "Arial", sans-serif;
+}
+html {
+  //padding: 80px;
+  //padding-top: 80px;
+  margin: 0;
+  background: #FFF;
+  color: #222;
+  font-weight: 300;
+  width: 100%;
+}
+
+
+h1 {
+  font-size: 2rem;
+  color: #222;
+}
+
+p {
+  line-height: 25px;
+	font-size: 16px;
+	font-weight: 400;
+  //font-family: 'Crimson Text';
+  color: #222;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Exo 2', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+	width: 100%;
+	background: #FFF;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.App {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  //background: #eee;
+  /*background: url('/img/1945.jpg') top center no-repeat;
+  background-size: cover;
+  z-index: 0;
+  &::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+  }
+  & span {
+    position: absolute;
+    text-align: center;
+    left: 50%;
+    top: 50%;
+    height: auto;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    color: #ffffff;
+    font-weight: 600;
+  }*/
+}
+
+.wrapper {
+	max-width: 1400px;
+	width: 100%;
+	margin: 0 auto;
+}
+
+.maim-screen {
+	width: 100%;
+	height: 100vh;
+
+	display: flex;
+	flex-direction: column;
+	&.second {
+		height: auto!important;
+	}
+}
+
+.screen-section {
+	min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.screen-section .screen-section__title {
+	height: 80px;
+	width: 100%;
+	background: #DF650C;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.screen-section .screen-section__title_orange {
+	background: #DF650C;
+}
+
+.screen-section .screen-section__title_orange h2 {
+	font-family: 'Exo 2', sans-serif;
+	font-size: 50px;
+	line-height: 60px;
+	color: #1C1C1C;
+
+	font-style: normal;
+	font-weight: normal;
+}
+
+.screen-section .screen-section__title_black {
+	background: #1C1C1C;
+}
+
+.screen-section .screen-section__title_black h2{
+	font-family: 'Exo 2', sans-serif;
+	font-size: 50px;
+	line-height: 60px;
+	color: #DF650C;
+
+	font-style: normal;
+	font-weight: normal;
+}
+
+.description {
+	font-family: 'Exo 2', sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 26px;
+	line-height: 35px;
+
+	color: #000000;
+
+	padding: 15px 50px 50px 50px;
+}
+.map {
+	font-family: 'Exo 2', sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 26px;
+	line-height: 35px;
+	position: relative;
+	color: #000000;
+
+	padding: 0;
+}
+
+
+@media (max-width: 1200px) { 
+
+	.screen-section .screen-section__title_orange h2 {
+		font-size: 40px;
+	}
+
+	.screen-section .screen-section__title_black h2 {
+		font-size: 40px;
+	}
+
+	.description {
+		font-size: 22px;
+	}
+}
+
+@media (max-width: 800px) { 
+	.wrapper {
+		max-width: 650px;
+	}
+
+	.screen-section .screen-section__title {
+	    padding: 10px 0;
+	    height: unset;
+	}
+
+	.screen-section .screen-section__title_black h2 {
+		max-width: 90%;
+	}
+
+	.screen-section .screen-section__title_orange h2 {
+		max-width: 90%;
+	}
+
+	.description {
+    	font-size: 20px;
+	}
+}
+
+@media (max-width: 600px) { 
+
+	.screen-section .screen-section__title_black h2 {
+		font-size: 32px;
+	}
+
+	.screen-section .screen-section__title_orange h2 {
+		font-size: 32px;
+	}
+	
+}
+
+@media (max-width: 550px) { 
+
+	.description {
+    	padding: 15px 25px 25px 25px;
+	}
+	
+	.description {
+	    font-size: 18px;
+	}
+	
+}
+
+@media (max-width: 430px) { 
+
+	.screen-section .screen-section__title_black h2 {
+		font-size: 28px;
+		line-height: 28px;
+	}
+
+	.screen-section .screen-section__title_orange h2 {
+		font-size: 28px;
+		line-height: 28px;
+	}
+
+	.description {
+	    line-height: 20px;
+	}
+	
+}

@@ -1,0 +1,92 @@
+.organistors {
+	padding: 60px 0;
+
+	display: flex;
+    justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.card {
+	flex-basis: 20%;
+}
+
+.card__wrapepr {
+	padding: 15px 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.card .card__img-container {
+	height: 150px;
+	width: 150px;
+
+	border-radius: 50%;
+	overflow: hidden;
+
+	//padding-bottom: 10px;
+}
+
+.card .card__img {
+	width: 100%;
+	height: 100%;
+
+	object-position: center;
+	object-fit: cover;
+	background-position: center;
+}
+
+.card .card__title {
+	font-family: 'Exo 2';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	line-height: 24px;
+    text-align: center;	
+
+	color: #000000;
+
+	padding-bottom: 10px;
+}
+
+
+.card .card__description {
+	font-family: 'Exo 2';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	line-height: 20px;
+	text-align: center;
+
+	color: rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 800px) { 
+
+	.card {
+	    flex-basis: 33.333%;
+	}
+}
+
+@media (max-width: 600px) { 
+
+	.card {
+	    flex-basis: 50%;
+	    min-width: 200px;
+	}
+
+	.organistors {
+		padding-top: 35px;
+	}
+}
+
+@media (max-width: 450px) { 
+
+	.card {
+	    flex-basis: 100%;
+	}
+
+	.organistors {
+		padding-top: 35px;
+	}
+}

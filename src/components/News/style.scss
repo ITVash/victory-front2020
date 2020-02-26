@@ -1,0 +1,26 @@
+.news {
+  min-width: 200px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  &__block {
+    padding: 20px;
+    transition: all .800s;
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      height: 2px;
+      width: 100%;
+      bottom: 0;
+      left: 0;
+      background: radial-gradient(rgb(200, 200, 200), rgba(255, 255, 255, 1));
+    }
+    &-date {
+      padding-bottom: 10px;
+    }
+    &:hover {
+      background: rgba(220,220,220, .4);
+    }
+  }
+}

@@ -1,0 +1,70 @@
+.footer {
+	height: 150px;
+	background: #df650c;
+}
+
+.footer .footer__wrapper {
+	margin: 0 auto;
+	height: 100%;
+	max-width: 1400px;
+	display: flex;
+	align-items: center;
+}
+
+.footer .footer__section {
+	flex-basis: 33.333%;
+	display: flex;
+	height: 100%;
+	align-items: center;
+}
+
+.footer .footer__section_2 {
+	font-family: "Exo 2";
+	font-style: normal;
+	font-weight: normal;
+	font-size: 30px;
+	line-height: 36px;
+
+	color: #141414;
+}
+
+.footer .footer__icon {
+	margin: 0 10px;
+}
+
+.footer .footer__section_2 {
+	justify-content: center;
+}
+
+.footer .footer__section_3 {
+	justify-content: flex-end;
+}
+
+@media (max-width: 800px) {
+	.footer .footer__wrapper {
+		max-width: 700px;
+	}
+
+	.footer a img {
+		width: 50px;
+	}
+
+	.footer .footer__section_2 {
+		font-size: 24px;
+	}
+}
+
+@media (max-width: 600px) {
+	.footer {
+		padding: 25px 0;
+		height: unset;
+	}
+
+	.footer .footer__wrapper {
+		flex-direction: column;
+	}
+
+	.footer .footer__section {
+		margin: 10px 0;
+	}
+}
