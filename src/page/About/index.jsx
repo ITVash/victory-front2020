@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
 import { Header, Section, Footer } from '../../components'
 const About = props => {
@@ -19,10 +18,6 @@ const About = props => {
       <Footer />
     </>
   )
-}
-
-About.propTypes = {
-
 }
 
 export default About

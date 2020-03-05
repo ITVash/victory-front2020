@@ -4,7 +4,8 @@ import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
-import { Header, Section, Card, Footer, CardSlider, Maps } from "../../components"
+import { Header, Section, Footer, CardSlider } from "../../components"
+import { Maps } from '../../container'
 const OrangeLeft = ({ onClick }) => {
 	return (
 		<button
@@ -70,7 +71,7 @@ const BlackRight = ({ onClick }) => {
 	)
 }
 const Home = props => {
-	
+		
 	const settings = {
 		dots: false,
 		infinite: true,
@@ -785,6 +786,8 @@ const Home = props => {
 	)
 }
 
-Home.propTypes = {}
+Home.propTypes = {
+	base: PropTypes.array
+}
 
 export default Home

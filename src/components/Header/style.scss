@@ -2,7 +2,48 @@
 	border-bottom: 10px solid #1c1c1c;
 	padding: 0 35px;
 }
+.photo {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 
+	position: relative;
+}
+.photo .photo__img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+.photo__orden {
+	display: block;
+	position: absolute;
+	top: 60px;
+
+	content: "";
+	background-image: url("/img/orden2.png");
+	background-repeat: no-repeat;
+
+	z-index: 1;
+
+	width: 100%;
+
+	height: 200px !important;
+	background-size: contain;
+
+	background-position: center;
+}
+@media (max-width: 900px) {
+	.photo .photo__orden {
+		height: 150px;
+	}
+}
+
+@media (max-width: 420px) {
+	.photo .photo__orden {
+		height: 100px;
+	}
+}
 .nav {
 	height: 130px;
 	width: 100%;
@@ -25,6 +66,15 @@
 
 .nav .nav__section_2 {
 	justify-content: center;
+	& .nav__advert-header {
+		font-family: Arial;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 40px;
+		line-height: 46px;
+		text-align: center;
+		color: #DF650C;
+	}
 }
 
 .nav .nav__section_3 {
@@ -164,6 +214,12 @@
 	.nav .nav__flag {
 		width: 100px;
 	}
+	.slider__gradient-overlay {
+		font-size: 38px !important;
+		span {
+			width: 100% !important;
+		}
+	}
 
 	.lang-switcher .lang-switcher__lang {
 		font-size: 32px;
@@ -237,7 +293,10 @@
 		font-size: 24px;
 	}
 	.slider__gradient-overlay {
-		font-size: 24px !important;
+		font-size: 36px !important;
+		span {
+			width: 100% !important;
+		}
 	}
 }
 
@@ -251,11 +310,15 @@
 		justify-content: space-between;
 	}
 	.slider__gradient-overlay {
-		font-size: 20px !important;
+		font-size: 26px !important;
+		span {
+			width: 100% !important;
+		}
 	}
 
 	.nav .nav__section_2 {
 		height: 100px;
+		
 	}
 
 	.seartch-input {
@@ -264,13 +327,27 @@
 	}
 
 	.nav .nav__flag {
-		display: none;
+		position: absolute;
+		top: 25px;
+		left: 25px;
+		width: 70px;
 	}
 
 	.nav .nav__section_1 {
 		justify-content: center;
 	}
-
+	.nav .nav__city-header {
+		font-family: Arial;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 50px;
+		line-height: 57px;
+	
+		color: #DF650C;
+	
+		text-align: center;
+	}
+	
 	.seartch-input .seartch-input__input {
 		width: 100%;
 	}
@@ -279,12 +356,37 @@
 		padding: 20px 0;
 	}
 }
-@media (max-width: 500px) {
+@media (max-width: 600px) {
 	.slider__gradient-overlay {
-		font-size: 14px !important;
+		font-size: 22px !important;
 	}
 }
-//@import url("https://fonts.googleapis.com/css?family=Exo+2&display=swap");
+@media (max-width: 500px) {
+	.slider__gradient-overlay {
+		font-size: 18px !important;
+	}
+}
+@media (max-width: 420px) {
+	.maim-screen {
+		height: 160vh;
+	}
+
+	.slider-buttons .slider-buttons__button {
+		bottom: -50%;
+	}
+
+	.overlay .overlayMenu ul li a {
+		font-size: 26px;
+		padding: 3px 20px;
+	}
+
+	.overlay .overlayMenu {
+		top: 14vh;
+	}
+	.slider__gradient-overlay {
+		font-size: 16px !important;
+	}
+}
 .navBurger {
 	z-index: 101;
 	cursor: pointer;
@@ -487,33 +589,16 @@
 		display: none;
 	}
 }
-/*.slick-list, .slick-track {
-	width: 100%;
-	height: 100%;
-}
-.ant-carousel, .slick-slide {
-  width: 100%;
-	height: 100%;
 
-	overflow: hidden;
-	position: relative;
-	& img {
-		height: 100%;
-		width: 100%;
-
-		object-fit: cover;
-		background-position: center;
-	}
-}*/
 .slider .slick-slider {
 	width: 100%;
 	height: 100% !important;
 
 	overflow: hidden;
 	position: relative;
-	.slick-list, .slick-track, div {
+	/*.slick-list, .slick-track, div {
 		height: 100% !important;
-	}
+	}*/
 }
 
 .slick-slide .slider .slider__slide {
@@ -541,7 +626,7 @@
 		margin-right: 10px;
 		cursor: pointer;
 		& button {
-			background: none!important;
+			background: none !important;
 			opacity: 0;
 		}
 		&.slick-active {
@@ -549,7 +634,7 @@
 			button {
 				background: none;
 				&::before {
-					content: '';
+					content: "";
 				}
 			}
 		}
@@ -593,16 +678,22 @@
 	height: 100%;
 
 	z-index: 1;
-	background: linear-gradient(180deg, rgba(223, 101, 12, 0.6) 0%, rgba(0, 0, 0, 0.5) 100%);
-	color: #FFF;
+	background: linear-gradient(
+		180deg,
+		rgba(223, 101, 12, 0.6) 0%,
+		rgba(0, 0, 0, 0.5) 100%
+	);
+	color: #fff;
 	display: flex;
 	text-align: center;
-	font-family: 'Exo 2';
-	font-size: 36px;
-	font-weight: 600;
+	font-family: "Exo 2";
+	font-size: 52px;
+	font-weight: 500;
 	justify-content: center;
 	align-items: center;
 	span {
+		top: -100px;
 		width: 75%;
+		line-height: 2;
 	}
 }

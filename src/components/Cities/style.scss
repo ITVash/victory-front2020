@@ -1,0 +1,11 @@
+.block__cities {
+  margin: 10px;
+  &-item {
+    margin-bottom: 10px;
+    & img {
+      object-fit: cover;
+      width: 50px;
+      margin-right: 10px;
+    }
+  }
+}

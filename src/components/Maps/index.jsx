@@ -1,45 +1,66 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { YMaps, Map } from 'react-yandex-maps'
-import { Icon } from 'antd'
+import React from "react"
+import PropTypes from "prop-types"
+import { YMaps, Map, Placemark } from "react-yandex-maps"
+import { Icon } from "antd"
+import { useHistory } from "react-router-dom"
 
-import './style.scss'
+import "./style.scss"
 
-const coord = {
-  center: [61.22704, 102.342258],
-  zoom: 4,
-}
 const Maps = props => {
-  let interval
-  let attemtion = 0
-  const handleClick = () => {
-    const map = document.querySelector('.map')
-    const position = /*map.offsetTop*/ window.pageYOffset
-    const height = map.clientHeight + map.offsetTop
-    console.log('Текущая позиция', position)
-    if ((position + attemtion) < height) {
-      window.scrollTo(0, (position + attemtion))
-      attemtion += 1
-      interval = setTimeout(handleClick,10)
-    } else {
-      clearTimeout(interval)
-      window.scrollTo(0, height)
-      attemtion = 0
-    }
-  }
-  
-  return (
-    <>
-      <YMaps>
-        <Map defaultState={coord} width='100%' height='100vh' />
-      </YMaps>
-      <div className="slide" onClick={handleClick}><Icon type="down-circle" /></div>
-    </>
-  )
+	const history = useHistory()
+	const { base, currentID, coords } = props
+	const coord = {
+		center: [61.22704, 102.342258],
+		zoom: 4,
+	}
+	let interval
+	let attemtion = 0
+	const handleClick = () => {
+		const map = document.querySelector(".map")
+		const position = /*map.offsetTop*/ window.pageYOffset
+		const height = map.clientHeight + map.offsetTop
+		if (position + attemtion < height) {
+			window.scrollTo(0, position + attemtion)
+			attemtion += 1
+			interval = setTimeout(handleClick, 10)
+		} else {
+			clearTimeout(interval)
+			window.scrollTo(0, height)
+			attemtion = 0
+		}
+	}
+
+	return (
+		<>
+			<YMaps>
+				<Map defaultState={coord} state={coords && {center:[coords[0], coords[1]], zoom: 12}} width='100%' height='100vh'>
+					{base.map((item, id) => {
+						return (
+							<Placemark
+								key={id}
+								geometry={[item.lat, item.lng]}
+								modules={["geoObject.addon.hint"]}
+								properties={{
+									hintContent: `${item.city}`,
+								}}
+								onClick={() => {
+									currentID(item.city)
+									history.push(`/cities/${item.city}`)
+								}}
+							/>
+						)
+					})}
+				</Map>
+			</YMaps>
+			<div className='slide' onClick={handleClick}>
+				<Icon type='down-circle' />
+			</div>
+		</>
+	)
 }
 
 Maps.propTypes = {
-
+	base: PropTypes.array,
 }
 
 export default Maps

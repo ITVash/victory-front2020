@@ -15,10 +15,10 @@ const Footer = () => {
 			<div className='footer__wrapper'>
 				<div className='footer__section footer__section_1'>
 					<a href={phone} className='footer__icon'>
-						<img src='img/whatsapp.png' alt='' />
+						<img src='/img/whatsapp.png' alt='' />
 					</a>
 					<a href={mail} className='footer__icon'>
-						<img src='img/mail.png' alt='' />
+						<img src='/img/mail.png' alt='' />
 					</a>
 				</div>
 
@@ -26,16 +26,16 @@ const Footer = () => {
 
 				<div className='footer__section footer__section_3'>
 					<a href={vk} className='footer__icon'>
-						<img src='img/vk.png' alt='' />
+						<img src='/img/vk.png' alt='' />
 					</a>
 					<a href={fb} className='footer__icon'>
-						<img src='img/facebook.png' alt='' />
+						<img src='/img/facebook.png' alt='' />
 					</a>
 					<a href={fb} className='footer__icon'>
-						<img src='img/insta.png' alt='' />
+						<img src='/img/insta.png' alt='' />
 					</a>
 					<a href={you} className='footer__icon'>
-						<img src='img/youtube.png' alt='' />
+						<img src='/img/youtube.png' alt='' />
 					</a>
 				</div>
 			</div>
