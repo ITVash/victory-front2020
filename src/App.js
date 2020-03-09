@@ -5,7 +5,7 @@ import { Switch, Route } from 'react-router-dom'
 //import 'moment-countdown'
 import "moment/locale/ru"
 
-import { Home, About, Cities, News, Donuzlav, Manager, City } from './page'
+import { Home, About, Cities, News, Donuzlav, Manager, City, Contacts } from './page'
 moment.locale("ru")
 
 const App = () => {
@@ -107,6 +107,7 @@ const App = () => {
         <Route exact path="/news" component={News} />
         <Route exact path="/news/:id" render={() => <News view />} />
         <Route exact path="/donuzlav" component={Donuzlav} />
+        <Route exact path="/contacts" component={Contacts} />
         <Route exact path='/manager' render={() => <Manager />} />
       </Switch>
 		</div>

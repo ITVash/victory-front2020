@@ -21,7 +21,7 @@ const Header = props => {
 		arrows: false,
 		adaptiveHeight: true,
 	}
-	const { second, city, base, photo, title } = props
+	const { second, city, base, photo, title, don } = props
 	const [open, setOpen] = useState(false)
 	return (
 		<header className={classNames("maim-screen", { second: second })}>
@@ -123,11 +123,10 @@ const Header = props => {
 				</div>
 			</div>
 
-			<div className={classNames({slider: !city}, {photo: city}, { second: second })}>
+			<div className={classNames({slider: !city}, {slider: !don}, {photo: don}, {photo: city}, { second: second })}>
 				{photo && (
-					<div className="photo">					
 						<img src="/img/donuzlav.png" alt="Донузлав" className="photo__img" />
-					</div>
+					
 				)}
 				{!city && (
 					<Slider {...settings}>

@@ -5,7 +5,7 @@ import { Header, Section, Footer } from "../../components"
 const Donuzlav = props => {
 	return (
 		<>
-			<Header photo title='Донузлав' />
+			<Header photo title='Донузлав' don />
 			<section className='screen-section'>
 				<div className='screen-section__title screen-section__title_orange'>
 					<h2>Описание</h2>
