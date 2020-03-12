@@ -1,64 +1,102 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import PropTypes from "prop-types"
+import { connect } from "react-redux"
+import { withRouter } from "react-router-dom"
+import LightBox from "react-image-lightbox"
 
+import { newsAction } from "../../redux/actions"
 import { Header, Section, Footer, News as NewsBase } from "../../components"
+
 const News = props => {
-	const { view } = props
+	const { view, news, baseNews, currentIDN, current } = props
+	const [open, setOpen] = useState({
+		open: false,
+		photo: null,
+	})
+	useEffect(() => {
+		news()
+	}, [news])
+	useEffect(() => {
+		const { pathname } = props.location
+		const current = pathname.split("/").pop()
+		currentIDN(current)
+	}, [props.location.pathname, currentIDN, props.location])
+	const fullNews = baseNews.filter(item => item._id === current)
+	window.full = fullNews
 	return (
 		<>
 			<Header second />
 			{!view && (
 				<Section type='description' title='Новостной блог' color='orange'>
 					<div className='news'>
-						<NewsBase
-							date='25.02.2020 10:00'
-							title='Севастополь (город-герой), Ялта, Алушта, с. Чистенькое, Бахчисарай'
-							link='oiuourwjllj13l12j'
-						/>
-						<NewsBase
-							date='25.02.2020 10:00'
-							title='Севастополь (город-герой), Ялта, Алушта, с. Чистенькое, Бахчисарай'
-							link='oiuourwjllj13l12j'
-						/>
-						<NewsBase
-							date='25.02.2020 10:00'
-							title='Севастополь (город-герой), Ялта, Алушта, с. Чистенькое, Бахчисарай'
-							link='oiuourwjllj13l12j'
-						/>
-						<NewsBase
-							date='25.02.2020 10:00'
-							title='Севастополь (город-герой), Ялта, Алушта, с. Чистенькое, Бахчисарай'
-							link='oiuourwjllj13l12j'
-						/>
-						<NewsBase
-							date='25.02.2020 10:00'
-							title='Севастополь (город-герой), Ялта, Алушта, с. Чистенькое, Бахчисарай'
-							link='oiuourwjllj13l12j'
-						/>
+						{baseNews &&
+							baseNews.map((item, id) => (
+								<NewsBase
+									key={id}
+									date={`${new Date(item.createdAt).toLocaleDateString(
+										"ru-RU",
+									)} ${new Date(item.createdAt).toLocaleTimeString("ru-RU")}`}
+									title={item.title}
+									link={item._id}
+								/>
+							))}
 					</div>
 				</Section>
 			)}
 			{view && (
 				<>
-					<Section
-						title='Новостной блог'
-						color='orange'
-						type='description'
-          >
-            <div className="news">
-              <NewsBase
-                date='25.02.2020 10:00'
-                title='Севастополь (город-герой), Ялта, Алушта, с. Чистенькое, Бахчисарай'
-                content='Lorem ipsum dolor, sit amet consectetur adipisicing elit. Reprehenderit autem, corporis doloremque porro similique odio rem totam fugit sit quasi corrupti possimus suscipit accusantium nihil numquam mollitia. Aspernatur asperiores consectetur molestiae consequatur facilis, natus enim recusandae ab aliquam unde sunt delectus aperiam commodi aut! Laudantium repellendus repudiandae molestias odit maiores incidunt obcaecati quidem facere eos aliquam modi, corporis pariatur accusamus magnam tempora nulla, corrupti nihil placeat ducimus illo, consequatur dolorum illum expedita! Praesentium reprehenderit rem, eaque libero sed esse rerum, quia eum quo dolorem accusantium itaque. Fugit doloremque similique temporibus, voluptatibus commodi voluptates. Blanditiis placeat cupiditate sapiente dolore ab! Ex!'
-                views
-              />
-            </div>
-          </Section>
-					<Section
-						title='Фото и видео'
-						color='black'
-						type='description'
-					></Section>
+					<Section title='Новостной блог' color='orange' type='description'>
+						<div className='news'>
+							{fullNews &&
+								fullNews.map(item => (
+									<NewsBase
+										key={item._id}
+										date={`${new Date(item.createdAt).toLocaleDateString(
+											"ru-RU",
+										)} ${new Date(item.createdAt).toLocaleTimeString("ru-RU")}`}
+										title={item.title}
+										content={item.body}
+										views
+									/>
+								))}
+						</div>
+					</Section>
+					<Section title='Фото и видео' color='black' type='gallery'>
+						{fullNews &&
+							fullNews.map(item => {
+								return item.images ? (
+									item.images.map((items, id) => (
+										<article key={id} className='gallery-card'>
+											<div
+												className='gallery-card__wrapper'
+												onClick={() => {
+													setOpen({
+														open: true,
+														photo: `http://localhost:4000/upload/${items}`,
+													})
+												}}
+											>
+												<div className='gallery-card__img-container'>
+													<img
+														src={`http://localhost:4000/upload/${items}`}
+														alt=''
+														className='gallery-card__img'
+													/>
+												</div>
+											</div>
+										</article>
+									))
+								) : (
+									<span>Нет фото для показа</span>
+								)
+							})}
+						{open.open && (
+							<LightBox
+								mainSrc={open.photo}
+								onCloseRequest={() => setOpen({ open: false })}
+							/>
+						)}
+					</Section>
 				</>
 			)}
 			<Footer />
@@ -70,4 +108,8 @@ News.propTypes = {
 	view: PropTypes.bool,
 }
 
-export default News
+export default withRouter(
+	connect(({ News }) => ({ baseNews: News.items, current: News.currentID }), {
+		...newsAction,
+	})(News),
+)

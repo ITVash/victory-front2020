@@ -55,6 +55,7 @@ const Header = props => {
 						citiesBase.map(item => {
 							return (
 								<Map
+									key={item._id+1}
 									state={{
 										center: [item.lat, item.lng],
 										zoom: 12,

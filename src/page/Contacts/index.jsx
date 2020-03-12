@@ -136,7 +136,7 @@ const Contacts = props => {
 									<div className='contact-card__image-container'>
 										<img
 											className='contact-card__image'
-											src='img/org1.png'
+											src='img/con3.jpg'
 											alt=''
 										/>
 									</div>

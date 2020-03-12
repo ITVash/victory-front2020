@@ -1,10 +1,12 @@
 .news {
   min-width: 200px;
+  
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   &__block {
     padding: 20px;
+    width: 100%;
     transition: all .800s;
     position: relative;
     &:before {

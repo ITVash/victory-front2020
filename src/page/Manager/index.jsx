@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { Tabs, Button, Drawer, Input, Upload } from "antd"
 import { UploadOutlined } from "@ant-design/icons-svg"
+import { withRouter } from 'react-router-dom'
 
 import { Section } from "../../components"
 import { Cities, People, News } from '../../container'
@@ -33,4 +34,4 @@ const Manager = props => {
 
 Manager.propTypes = {}
 
-export default Manager
+export default withRouter(Manager)

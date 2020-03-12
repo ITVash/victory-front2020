@@ -4,6 +4,7 @@ import classNames from "classnames"
 import PropTypes from "prop-types"
 import { Link } from "react-router-dom"
 import Slider from "react-slick"
+import { connect } from "react-redux"
 
 import "./style.scss"
 
@@ -23,6 +24,21 @@ const Header = props => {
 	}
 	const { second, city, base, photo, title, don } = props
 	const [open, setOpen] = useState(false)
+	const onChange = value => {
+		console.log(`selected ${value}`);
+	}
+	
+	const onBlur = () => {
+		console.log('blur');
+	}
+	
+	const onFocus = () => {
+		console.log('focus');
+	}
+	
+	const onSearch = val => {
+		console.log('search:', val);
+	}
 	return (
 		<header className={classNames("maim-screen", { second: second })}>
 			<div className='nav-wrapper'>
@@ -31,13 +47,25 @@ const Header = props => {
 						<img src='/img/flag.png' alt='' className='nav__flag' />
 
 						<div className='seartch-input'>
-							<input
-								type='input'
-								name=''
+							<Select
+								showSearch
 								className='seartch-input__input'
 								placeholder='Выберите ваш город'
-							/>
-							<button className='seartch-input__button'></button>
+								style={{ width: "100vw" }}
+								optionFilterProp="children"
+								onChange={onChange}
+								onFocus={onFocus}
+								onBlur={onBlur}
+								onSearch={onSearch}
+								filterOption={(input, option) =>
+									option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+								}
+								
+							>
+								<Option value="jack">Jack</Option>
+    <Option value="lucy">Lucy</Option>
+    <Option value="tom">Tom</Option>
+							</Select>
 						</div>
 					</div>
 
@@ -45,11 +73,8 @@ const Header = props => {
 						{!title ? (
 							<div alt='' className='nav__orden'></div>
 						) : (
-							<h1 className="nav__advert-header">
-								{title}
-							</h1>
+							<h1 className='nav__advert-header'>{title}</h1>
 						)}
-
 					</div>
 
 					<div className='nav__section nav__section_3'>
@@ -123,10 +148,17 @@ const Header = props => {
 				</div>
 			</div>
 
-			<div className={classNames({slider: !city}, {slider: !don}, {photo: don}, {photo: city}, { second: second })}>
+			<div
+				className={classNames(
+					{ slider: !city },
+					{ slider: !don },
+					{ photo: don },
+					{ photo: city },
+					{ second: second },
+				)}
+			>
 				{photo && (
-						<img src="/img/donuzlav.png" alt="Донузлав" className="photo__img" />
-					
+					<img src='/img/donuzlav.png' alt='Донузлав' className='photo__img' />
 				)}
 				{!city && (
 					<Slider {...settings}>
@@ -162,8 +194,12 @@ const Header = props => {
 							base.photo.map((item, id) => {
 								return (
 									<div className='photo' key={id}>
-										<div className="photo__orden"></div>
-										<img src={`http://localhost:4000/upload/${item}`} alt={base.city} className='photo__img' />
+										<div className='photo__orden'></div>
+										<img
+											src={`http://localhost:4000/upload/${item}`}
+											alt={base.city}
+											className='photo__img'
+										/>
 									</div>
 								)
 							})}
@@ -178,7 +214,7 @@ Header.propTypes = {
 	second: PropTypes.bool,
 	city: PropTypes.bool,
 	photo: PropTypes.bool,
-	title: PropTypes.string
+	title: PropTypes.string,
 }
 
-export default Header
+export default connect()(Header)
