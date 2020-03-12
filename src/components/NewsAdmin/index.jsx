@@ -3,19 +3,19 @@ import PropTypes from "prop-types"
 import { Button, Drawer, Input, Icon, Select } from "antd"
 
 import "./style.scss"
-const Cities = props => {
-	const { base, def, set, addSlider, images, save, currentID } = props
-	const { Option } = Select
+const NewsAdmin = props => {
+	const { base, def, set, addImages, save, currentID } = props
+
 	const [cities, setCities] = useState(false)
-	console.log("base", base)
+
 	return (
 		<div className='block'>
-			<h3>Города</h3>
+			<h3>Учасники</h3>
 			<Button type='primary' onClick={() => setCities(true)}>
-				Добавить город...
+				Добавить новость...
 			</Button>
 			<Drawer
-				title='Добавить/Редактировать город'
+				title='Добавить/Редактировать Новость'
 				width={720}
 				onClose={() => setCities(false)}
 				visible={cities}
@@ -37,61 +37,29 @@ const Cities = props => {
 			>
 				<div className='create'>
 					<div className='create__title'>
-						<label htmlFor='title'>Название города</label>
+						<label htmlFor='title'>Название новости</label>
 						<Input
 							id='title'
-							value={def.city}
-							onChange={e => set({ ...def, city: e.target.value })}
-						/>
-					</div>
-					<div className='create__slider'>
-						<label htmlFor='slider'>Загрузите картинки для слайдера</label>
-						<input
-							id='slider'
-							type='file'
-							multiple
-							onChange={e => addSlider(e)}
-						/>
-					</div>
-					<div className='create__visited'>
-						<label htmlFor='visitedd'>Посетили город</label>
-						<Select
-							value={`${def.visited}`}
-							style={{width:'100px'}}
-							defaultValue='Выберете значение'
-							onChange={e => set({ ...def, visited: e })}
-						>
-							<Option value={`${false}`}>Нет</Option>
-							<Option value={`${true}`}>Да</Option>
-						</Select>
-					</div>
-					<div className='create__lat'>
-						<label htmlFor='lat'>Широта</label>
-						<Input
-							id='lat'
-							value={def.lat}
-							onChange={e => set({ ...def, lat: e.target.value })}
-						/>
-					</div>
-					<div className='create__lng'>
-						<label htmlFor='lng'>Долгота</label>
-						<Input
-							id='lng'
-							value={def.lng}
-							onChange={e => set({ ...def, lng: e.target.value })}
+							value={def.title}
+							onChange={e => set({ ...def, title: e.target.value })}
 						/>
 					</div>
 					<div className='create__text'>
-						<label htmlFor='text'>Информация</label>
+						<label htmlFor='text'>Текст новости</label>
 						<Input.TextArea
 							id='text'
 							value={def.body}
 							onChange={e => set({ ...def, body: e.target.value })}
 						/>
 					</div>
-					<div className='create__photo'>
-						<label htmlFor='photo'>Загрузите фотографии</label>
-						<input id='photo' type='file' multiple onChange={e => images(e)} />
+					<div className='create__slider'>
+						<label htmlFor='slider'>Загрузите Фотографии</label>
+						<input
+							id='slider'
+							type='file'
+							onChange={e => addImages(e)}
+							multiple
+						/>
 					</div>
 					<div className='create__footer'>
 						<div
@@ -100,7 +68,15 @@ const Cities = props => {
 							}}
 						>
 							<Button
-								onClick={() => setCities(false)}
+								onClick={() => {
+									set({
+										title: "Название",
+										body: "Текст",
+										images: [],
+										videos: [],
+									})
+									setCities(false)
+								}}
 								style={{ marginRight: 8 }}
 							>
 								Отмена
@@ -123,11 +99,9 @@ const Cities = props => {
 					base.map((item, id) => {
 						return (
 							<div className='block__cities-item' key={id}>
-								<img
-									src={`http://localhost:4000/upload/${item.photo[0]}`}
-									alt={`${item.city}`}
-								/>
-								{item.city}{" "}
+								{new Date(item.createdAt).toLocaleDateString("ru-RU")}{" "}
+								{new Date(item.createdAt).toLocaleTimeString("ru-RU")}{" "}
+								{item.title}{" "}
 								<span>
 									<Button
 										onClick={() => {
@@ -146,15 +120,15 @@ const Cities = props => {
 						)
 					})
 				) : (
-					<span>Нету городов для отображения </span>
+					<span>Нету новостей для отображения </span>
 				)}
 			</div>
 		</div>
 	)
 }
 
-Cities.propTypes = {
+NewsAdmin.propTypes = {
 	base: PropTypes.array || PropTypes.object,
 }
 
-export default Cities
+export default NewsAdmin

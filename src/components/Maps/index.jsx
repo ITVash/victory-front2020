@@ -43,6 +43,12 @@ const Maps = props => {
 								properties={{
 									hintContent: `${item.city}`,
 								}}
+								options={{
+									iconLayout: 'default#image',
+									iconImageHref: item.visited ? `/img/ico_city1.png` : `/img/ico_city2.png`,
+									iconImageSize: [20, 20],
+									iconImageOffset: [-10, -10],
+								}}
 								onClick={() => {
 									currentID(item.city)
 									history.push(`/cities/${item.city}`)

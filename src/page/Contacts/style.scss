@@ -1,0 +1,285 @@
+.contact-title {
+	font-family: 'Exo 2', sans-serif;
+	font-size: 50px;
+	line-height: 60px;
+	color: #1C1C1C;
+
+	font-style: normal;
+	font-weight: normal;
+
+	background: #DF650C;
+	width: 100%;
+	min-height: 72px;
+	text-align: center;
+}
+
+.contact-section {
+	padding-top: 50px;
+	margin-bottom: 20px;
+}
+
+.contact-section_underline {
+	position: relative;
+}
+
+.contact-section_underline:after {
+	position: absolute;
+	bottom: -20px;
+
+	display: block;
+	height: 3px;
+	width: 40%;
+	content: "";
+	background: linear-gradient(90deg, rgba(51, 51, 51, 1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+.contact-section .contact-section__header {
+	font-family: 'Exo 2';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 45px;
+	line-height: 54px;
+
+	color: #1C1C1C;
+
+	margin-bottom: 50px;
+}
+
+.contact-section .contact-section__phones {
+	font-family: 'Exo 2';	
+	font-style: normal;
+	font-weight: normal;
+	font-size: 35px;
+	line-height: 48px;
+
+	color: rgba(28, 28, 28, 0.8);
+
+	margin-bottom: 30px;
+	padding-left: 100px;
+}
+
+.contact-section .contact-section__phones:nth-last-child {
+	margin-bottom: 0;
+}
+
+/*.contact-section .contact-section__item {
+	display: inline-block;
+}*/
+
+.contact-section .contact-section__info {
+	font-family: 'Exo 2';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	line-height: 30px;
+
+
+	color: rgba(28, 28, 28, 0.8);
+}
+
+@media (max-width: 1440px) { 
+
+	.contact-section .contact-section__headers {
+		padding-left: 100px;
+	}
+}
+
+@media (max-width: 1168px) { 
+	.contact-section .contact-section__header {
+	    padding-left: 50px;
+	}
+
+	.contact-section .contact-section__phones {
+		padding-left: 50px;
+	}
+
+	.contact-section .contact-section__phones {
+		font-size: 30px;
+	}
+
+	.contact-section .contact-section__header {
+		margin-bottom: 25px;
+	}
+
+	.contact-section {
+	    padding-top: 25px;
+	}
+
+	.contact-section .contact-section__info {
+	    font-size: 20px;
+	}
+
+	.contact-title {
+		font-size: 40px;
+	}
+}
+
+@media (max-width: 550px) { 
+	.contact-section .contact-section__header {
+	    font-size: 34px;
+	    margin-bottom: 10px;
+        text-align: center;	
+        padding-left: unset;
+	}
+
+	.contact-section .contact-section__phones {
+		margin-bottom: 5px;
+	}
+
+	.contact-title {
+	    font-size: 34px;
+	}
+}
+
+@media (max-width: 430px) { 
+	.contact-title {
+	    font-size: 26px;
+	}
+
+	.contact-section .contact-section__header {
+	    font-size: 26px;
+	}
+
+	.contact-section .contact-section__phones {
+	    font-size: 24px;
+	    line-height: 30px;
+	    padding: 0 25px;
+	}
+}
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+
+.contact-card {
+	display: flex;
+	/*flex-basis: 33.333%;*/
+	justify-content: center;
+
+	box-shadow: 0px 0px 10px #000000;
+	border-radius: 5px;
+
+	margin-bottom: 25px;
+}
+
+.contact-card .contact-card__wrapper {
+	max-width: 370px;
+	padding: 5px 15px 55px 15px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.contact-card .contact-card__image-container {
+	width: 100%;
+	text-align: center;
+}
+
+.contact-card .contact-card__image {
+	border-radius: 50%;
+	overflow: hidden;
+	height: 200px;
+	width: 200px;
+
+	object-position: center;
+	object-fit: cover;
+}
+
+.contact-card .contact-card__title {
+	font-family: 'Exo 2';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 35px;
+	line-height: 42px;
+
+	color: #000000;
+}
+
+.contact-card .contact-card__description {
+	font-family: Exo;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 23px;
+	line-height: 31px;
+	text-align: center;
+
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.contact-card .contact-card__contacts {
+	margin-top: 20px;
+	display: flex;
+	width: 100%;
+}
+
+.contact-card .contact-card__phones {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 65%;
+	flex-grow: 1;
+}
+
+.contact-card .contact-card__socials {
+	display: flex;
+	flex-basis: 35%;
+	flex-grow: 1;
+
+	justify-content: space-between;
+	align-items: flex-end;
+}
+
+.contact-card .contact-card__phone {
+	font-family: 'Exo 2';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 23px;
+	line-height: 28px;
+
+	color: rgba(28, 28, 28, 0.8);
+}
+
+.contact-card .contact-card__socials img {
+	margin-left: 10px;
+}
+
+
+@media (max-width: 1168px) { 
+
+	.cards {
+		padding: 0 25px;
+	}
+
+	.contact-card .contact-card__wrapper {
+	    max-width: 300px;
+	}
+
+	.contact-card .contact-card__image {
+		height: 150px;
+		width: 150px;
+	}
+
+	.contact-card .contact-card__title {
+		font-size: 24px;
+	}
+
+	.contact-card .contact-card__description {
+		font-size: 18px;
+	}
+
+	.contact-card .contact-card__socials img {
+		width: 45px;
+	}
+}
+
+@media (max-width: 430px) { 
+	.contact-card .contact-card__phone {
+	    font-size: 20px;
+	}
+
+	.contact-card .contact-card__wrapper {
+	    max-width: 370px;
+	    padding: 5px 15px 35px 15px;
+	}
+}

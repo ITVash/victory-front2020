@@ -1,22 +1,39 @@
 import React, { useState, useEffect } from "react"
-import { Cities as CitiesBase } from "../../components"
+
+import { People as PeopleBase } from "../../components"
 import { connect } from "react-redux"
 
-import { routeAction } from "../../redux/actions"
+import { routeAction, peopleAction } from "../../redux/actions"
 import { attachments } from "../../api"
 
-const Cities = props => {
-	const { citiesBases, cities, addRoute, currentID, current, updateRouteMap } = props
+const People = props => {
+	const {
+		citiesBases,
+		cities,
+		currentIDP,
+		current,
+		addPeople,
+		updatePeople,
+		peopleBase,
+		people,
+	} = props
 	const [photo, setPhoto] = useState()
 	const [obj, setObj] = useState({
-		city: "Город",
-		photo: [],
+		avatar: "",
+		type: 0,
+		cities: "",
+		name: "Имя",
+		desc: "Описание",
 		body: "Текст",
-		lat: 0,
-		lng: 0,
-		visited: false,
-		images: [],
-		videos: [],
+		link: "Ссылка",
+		soc: {
+			vk: "Ссылка",
+			fb: "Ссылка",
+			ins: "Ссылка",
+			site: "Ссылка",
+			you: "Ссылка",
+			tw: "Ссылка",
+		}
 	})
 	const addSlider = e => {
 		const files = e.target.files
@@ -25,10 +42,10 @@ const Cities = props => {
 		let items
 		for (let i = 0; i < files.length; i++) {
 			items = files[i]
-			data.push(items.name)
+			//data.push(items.name)
+			setObj({ ...obj, avatar:items.name })
 			photo.push(items)
 		}
-		setObj(prev => ({ ...prev, photo: prev.photo.concat(data) }))
 		setPhoto({ ...photo, slider: photo })
 	}
 	const images = e => {
@@ -41,7 +58,7 @@ const Cities = props => {
 			data.push(items.name)
 			images.push(items)
 		}
-		setObj(prev => ({...prev, images: prev.images.concat(data) })``)
+		setObj({ ...obj, images: data })
 		setPhoto({ ...photo, images: images })
 	}
 	const save = () => {
@@ -60,33 +77,42 @@ const Cities = props => {
 			attachments.add(data)
 		}
 		if (current === obj._id) {
-			updateRouteMap(current, obj)
+			updatePeople(current, obj)
 		} else {
-			addRoute(obj)
+			addPeople(obj)
 		}
 		setObj({
-			city: "Город",
-			photo: [],
+			avatar: "",
+			type: 0,
+			cities: "",
+			name: "Имя",
+			desc: "Описание",
 			body: "Текст",
-			lat: 0,
-			lng: 0,
-			visited: false,
-			images: [],
-			videos: [],
+			link: "Ссылка",
+			soc: {
+				vk: "Ссылка",
+				fb: "Ссылка",
+				ins: "Ссылка",
+				site: "Ссылка",
+				you: "Ссылка",
+				tw: "Ссылка",
+			}
 		})
 		setPhoto(null)
-		currentID(null)
+		currentIDP(null)
 	}
 	useEffect(() => {
 		cities()
-	}, [cities])
+		people()
+	}, [cities, people])
 
 	window.obj = obj
 	window.photo = photo
 	return (
-		<CitiesBase
-			base={citiesBases}
-			currentID={currentID}
+		<PeopleBase
+			base={peopleBase}
+			city={citiesBases}
+			currentID={currentIDP}
 			def={obj}
 			set={setObj}
 			addSlider={addSlider}
@@ -96,6 +122,13 @@ const Cities = props => {
 	)
 }
 
-export default connect(({ routeMap }) => ({ citiesBases: routeMap.items, current: routeMap.currentID }), {
-	...routeAction,
-})(Cities)
+export default connect(
+	({ routeMap, People }) => ({
+		citiesBases: routeMap.items,
+		current: People.currentID,
+		peopleBase: People.items,
+	}),
+	{
+		...routeAction, ...peopleAction
+	},
+)(People)

@@ -6,37 +6,37 @@ const initialState = {
 
 export default (state = initialState, { type, payload }) => {
 	switch (type) {
-		case "ROUTE:IS_LOADING":
+		case "NEWS:IS_LOADING":
 			return {
 				...state,
 				isLoading: payload,
 			}
-		case "ROUTE:CITIES":
+		case "NEWS:NEWS":
 			return {
 				...state,
 				items: payload,
 			}
-		case "ROUTE:UPDATE":
+		case "NEWS:UPDATE":
 			return {
 				...state,
 				items: state.items.filter(item => {
-          if (item._id === state.currentID) {
+          if (item._id === payload._id) {
             return  Object.assign(item, payload)
           }
           return item;
         })
 			}
-		case "ROUTE:SHOWID":
+		case "NEWS:SHOWID":
 			return {
 				...state,
 				items: payload,
 			}
-		case "ROUTE:CURRENTID":
+		case "NEWS:CURRENTID":
 			return {
 				...state,
 				currentID: payload,
 			}
-		case "ROUTE:ADD":
+		case "NEWS:ADD":
 			return {
 				...state,
 				items: [...state.items, payload],

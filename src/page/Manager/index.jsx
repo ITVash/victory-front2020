@@ -4,7 +4,7 @@ import { Tabs, Button, Drawer, Input, Upload } from "antd"
 import { UploadOutlined } from "@ant-design/icons-svg"
 
 import { Section } from "../../components"
-import { Cities } from '../../container'
+import { Cities, People, News } from '../../container'
 const Manager = props => {
 	const { TabPane } = Tabs
 	
@@ -18,10 +18,10 @@ const Manager = props => {
 					Реклама
 				</TabPane>
 				<TabPane tab={"Учасники"} key='3'>
-					Учасники
+					<People />
 				</TabPane>
 				<TabPane tab={"Новости"} key='4'>
-					Новости
+					<News />
 				</TabPane>
 				<TabPane tab={"Стримы"} key='5'>
 					Стримы

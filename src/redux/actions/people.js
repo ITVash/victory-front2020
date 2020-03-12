@@ -1,61 +1,59 @@
-import { routeMap } from "../../api"
+import { people } from "../../api"
 
 const actions = {
 	isLoading: load => ({
-		type: "ROUTE:IS_LOADING",
+		type: "PEOPLE:IS_LOADING",
 		payload: load,
 	}),
-	_addRoute: data => ({
-		type: "ROUTE:ADD",
+	_addPeople: data => ({
+		type: "PEOPLE:ADD",
 		payload: data,
 	}),
-	_cities: data => ({
-		type: "ROUTE:CITIES",
+	_people: data => ({
+		type: "PEOPLE:PEOPLE",
 		payload: data,
 	}),
-	currentID: id => ({
-		type: "ROUTE:CURRENTID",
+	currentIDP: id => ({
+		type: "PEOPLE:CURRENTID",
 		payload: id,
 	}),
 	_showID: data => ({
-		type: "ROUTE:SHOWID",
+		type: "PEOPLE:SHOWID",
 		payload: data,
 	}),
 	_update: data => ({
-		type: "ROUTE:UPDATE",
+		type: "PEOPLE:UPDATE",
 		payload: data,
 	}),
-	addRoute: route => dispatch => {
-		routeMap
-			.addRoute(route)
+	addPeople: peopleData => dispatch => {
+		people.addPeople(peopleData)			
 			.then(({ data }) => {
-				dispatch(actions._addRoute(data.data))
+				dispatch(actions._addPeople(data))
 				console.log("data", data)
 			})
 			.catch(err => console.log("err", err))
 	},
-	updateRouteMap: (id, data) => dispatch => {
-		routeMap
+	updatePeople: (id, data) => dispatch => {
+		people
 			.update(id, data)
 			.then(({ data }) => {
 				dispatch(actions._update(data))
-				console.log("update", data)
 			})
 			.catch(err => console.log("err", err))
 	},
-	cities: () => dispatch => {
-		routeMap
-			.cities()
+	people: () => dispatch => {
+		people
+			.showPeople()
 			.then(({ data }) => {
-				dispatch(actions._cities(data))
+				dispatch(actions._people(data))
 			})
 			.catch(err => {
 				console.log("err", err)
 			})
 	},
-	showID: id => dispatch => {
-		routeMap
-			.show(id)
+	peopleShowID: id => dispatch => {
+		people
+			.showPeopleID(id)
 			.then(({ data }) => {
 				dispatch(actions._showID(data))
 			})

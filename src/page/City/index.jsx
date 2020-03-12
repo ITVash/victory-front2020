@@ -1,8 +1,6 @@
 import React from "react"
-import PropTypes from "prop-types"
-//import { YMaps, Map } from "react-yandex-maps"
 
-import { Section, Footer } from "../../components"
+import { Footer } from "../../components"
 import { Header } from '../../container'
 const City = props => {
 	/*const coord = {
@@ -16,7 +14,5 @@ const City = props => {
 		</>
 	)
 }
-
-City.propTypes = {}
 
 export default City

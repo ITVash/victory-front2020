@@ -1,61 +1,58 @@
-import { routeMap } from "../../api"
+import { news } from "../../api"
 
 const actions = {
 	isLoading: load => ({
-		type: "ROUTE:IS_LOADING",
+		type: "NEWS:IS_LOADING",
 		payload: load,
 	}),
-	_addRoute: data => ({
-		type: "ROUTE:ADD",
+	_addNews: data => ({
+		type: "NEWS:ADD",
 		payload: data,
 	}),
-	_cities: data => ({
-		type: "ROUTE:CITIES",
+	_news: data => ({
+		type: "NEWS:NEWS",
 		payload: data,
 	}),
-	currentID: id => ({
-		type: "ROUTE:CURRENTID",
+	currentIDN: id => ({
+		type: "NEWS:CURRENTID",
 		payload: id,
 	}),
 	_showID: data => ({
-		type: "ROUTE:SHOWID",
+		type: "NEWS:SHOWID",
 		payload: data,
 	}),
 	_update: data => ({
-		type: "ROUTE:UPDATE",
+		type: "NEWS:UPDATE",
 		payload: data,
 	}),
-	addRoute: route => dispatch => {
-		routeMap
-			.addRoute(route)
+	addNews: newsData => dispatch => {
+		news.addNews(newsData)			
 			.then(({ data }) => {
-				dispatch(actions._addRoute(data.data))
-				console.log("data", data)
+				dispatch(actions._addNews(data))
 			})
 			.catch(err => console.log("err", err))
 	},
-	updateRouteMap: (id, data) => dispatch => {
-		routeMap
+	updateNews: (id, data) => dispatch => {
+		news
 			.update(id, data)
 			.then(({ data }) => {
 				dispatch(actions._update(data))
-				console.log("update", data)
 			})
 			.catch(err => console.log("err", err))
 	},
-	cities: () => dispatch => {
-		routeMap
-			.cities()
+	news: () => dispatch => {
+		news
+			.showNews()
 			.then(({ data }) => {
-				dispatch(actions._cities(data))
+				dispatch(actions._news(data))
 			})
 			.catch(err => {
 				console.log("err", err)
 			})
 	},
-	showID: id => dispatch => {
-		routeMap
-			.show(id)
+	newsShowID: id => dispatch => {
+		news
+			.showNewsID(id)
 			.then(({ data }) => {
 				dispatch(actions._showID(data))
 			})

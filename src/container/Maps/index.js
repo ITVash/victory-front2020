@@ -8,7 +8,7 @@ const Maps = props => {
   const { citiesBase, cities, currentID } = props
   useEffect(() => {
     cities()
-  }, [])
+  }, [cities])
   return (
     <MapsBase base={ citiesBase } currentID={currentID} />
   )

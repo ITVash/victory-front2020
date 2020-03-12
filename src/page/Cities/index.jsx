@@ -1,71 +1,37 @@
-import React from "react"
-import PropTypes from "prop-types"
-//import { YMaps, Map } from "react-yandex-maps"
+import React, { useEffect } from "react"
+import { connect } from "react-redux"
+import { Link } from 'react-router-dom'
 
+import "./style.scss"
+
+import { routeAction } from "../../redux/actions"
 import { Header, Section, Footer } from "../../components"
 const Cities = props => {
-	/*const coord = {
-		center: [61.22704, 102.342258],
-		zoom: 4,
-	}*/
+	const { cities, baseCity } = props
+
+	useEffect(() => {
+		cities()
+	}, [cities])
 	return (
 		<>
 			<Header second />
-			<Section type='description' title='Города' color='orange'>
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-				tempora aliquam debitis, numquam corporis nemo molestiae aperiam. Illum
-				necessitatibus, ipsa explicabo vel asperiores alias reiciendis excepturi
-				laudantium dolor quo.
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-					tempora aliquam debitis, numquam corporis nemo molestiae aperiam.
-					Illum necessitatibus, ipsa explicabo vel asperiores alias reiciendis
-					excepturi laudantium dolor quo.
-				</p>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-					tempora aliquam debitis, numquam corporis nemo molestiae aperiam.
-					Illum necessitatibus, ipsa explicabo vel asperiores alias reiciendis
-					excepturi laudantium dolor quo.
-				</p>
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-				tempora aliquam debitis, numquam corporis nemo molestiae aperiam. Illum
-				necessitatibus, ipsa explicabo vel asperiores alias reiciendis excepturi
-				laudantium dolor quo.
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-					tempora aliquam debitis, numquam corporis nemo molestiae aperiam.
-					Illum necessitatibus, ipsa explicabo vel asperiores alias reiciendis
-					excepturi laudantium dolor quo.
-				</p>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-					tempora aliquam debitis, numquam corporis nemo molestiae aperiam.
-					Illum necessitatibus, ipsa explicabo vel asperiores alias reiciendis
-					excepturi laudantium dolor quo.
-				</p>
-				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-				tempora aliquam debitis, numquam corporis nemo molestiae aperiam. Illum
-				necessitatibus, ipsa explicabo vel asperiores alias reiciendis excepturi
-				laudantium dolor quo.
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-					tempora aliquam debitis, numquam corporis nemo molestiae aperiam.
-					Illum necessitatibus, ipsa explicabo vel asperiores alias reiciendis
-					excepturi laudantium dolor quo.
-				</p>
-				<p>
-					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sequi quo
-					tempora aliquam debitis, numquam corporis nemo molestiae aperiam.
-					Illum necessitatibus, ipsa explicabo vel asperiores alias reiciendis
-					excepturi laudantium dolor quo.
-				</p>
+			<Section type='' title='Города' color='orange'>
+				<ol className='cities'>
+					{baseCity &&
+						baseCity.map((item, id) => (
+							<li key={id} className='cities__item-container'>
+								<Link to={`/cities/${item.city}`} className='cities__item'>
+									{item.city}
+								</Link>
+							</li>
+						))}
+				</ol>
 			</Section>
 			<Footer />
 		</>
 	)
 }
 
-Cities.propTypes = {}
-
-export default Cities
+export default connect(({ routeMap }) => ({ baseCity: routeMap.items }), {
+	...routeAction,
+})(Cities)
