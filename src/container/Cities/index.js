@@ -31,7 +31,7 @@ const Cities = props => {
 			data.push(items.name)
 			photo.push(items)
 		}
-		setObj(prev => ({ ...prev, photo: prev.photo.concat(data) }))
+		setObj(prev => ({ ...prev, photo: data }))
 		setPhoto({ ...photo, slider: photo })
 	}
 	const images = e => {

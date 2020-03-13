@@ -84,9 +84,11 @@ code {
 
 .maim-screen {
 	width: 100%;
-	min-height: 100vh;
+	//min-height: 100vh;
 
 	display: flex;
+	flex: 1 1 auto;
+
 	flex-direction: column;
 	&.second {
 		min-height: auto !important;
