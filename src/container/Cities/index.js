@@ -7,7 +7,10 @@ import { attachments } from "../../api"
 
 const Cities = props => {
 	const { citiesBases, cities, addRoute, currentID, current, updateRouteMap } = props
-	const [photo, setPhoto] = useState()
+	const [photo, setPhoto] = useState({
+		slider: null,
+		photo: null
+	})
 	const [obj, setObj] = useState({
 		city: "Город",
 		photo: [],
@@ -41,8 +44,8 @@ const Cities = props => {
 			data.push(items.name)
 			images.push(items)
 		}
-		setObj(prev => ({...prev, images: prev.images.concat(data) })``)
-		setPhoto({ ...photo, images: images })
+		setObj(prev => ({...prev, images: prev.images.concat(data) }))
+		setPhoto(prev => ({ ...prev, images: prev.images.concat(images) }))
 	}
 	const save = () => {
 		const data = new FormData()
@@ -74,7 +77,10 @@ const Cities = props => {
 			images: [],
 			videos: [],
 		})
-		setPhoto(null)
+		setPhoto({
+			slider: null,
+			photo: null
+		})
 		currentID(null)
 	}
 	useEffect(() => {

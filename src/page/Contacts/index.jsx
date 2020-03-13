@@ -64,8 +64,7 @@ const Contacts = props => {
 										Ельников Алексей Алексеевич
 									</div>
 									<div className='contact-card__description'>
-										Заместитель председателя РОД “Патриотические силы Донбасса”
-										(г. Донецк) ДНР
+										Участник Автопробега
 									</div>
 									<div className='contact-card__contacts'>
 										<div className='contact-card__phones'>
@@ -104,8 +103,7 @@ const Contacts = props => {
 										Лисицын Михаил Александрович
 									</div>
 									<div className='contact-card__description'>
-										Заместитель председателя РОД “Патриотические силы Донбасса”
-										(г. Донецк) ДНР
+										Учредитель ITD Company
 									</div>
 									<div className='contact-card__contacts'>
 										<div className='contact-card__phones'>

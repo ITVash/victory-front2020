@@ -6,9 +6,10 @@ const Footer = () => {
 	let fb =
 		"https://www.facebook.com/75-%D0%BB%D0%B5%D1%82-%D0%9D%D0%B0%D1%88%D0%B0-%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%B0%D1%8F-%D0%9F%D0%BE%D0%B1%D0%B5%D0%B4%D0%B0-106156270982734/"
 	let vk = "https://vk.com/pobeda75_online"
+	let inst = "https://www.instagram.com/_pobeda75_/"
 	let you = "https://www.youtube.com/channel/UCt6uIg3k24yoeq9EmQpn9Gg"
 	let mail = "mailto:nashapobeda75@gmail.com"
-	let phone = "tel:+380173679656"
+	let phone = "tel:+79064187882"
 
 	return (
 		<footer className='footer'>
@@ -31,7 +32,7 @@ const Footer = () => {
 					<a href={fb} className='footer__icon'>
 						<img src='/img/facebook.png' alt='' />
 					</a>
-					<a href={fb} className='footer__icon'>
+					<a href={inst} className='footer__icon'>
 						<img src='/img/insta.png' alt='' />
 					</a>
 					<a href={you} className='footer__icon'>

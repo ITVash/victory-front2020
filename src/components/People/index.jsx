@@ -208,7 +208,7 @@ const People = props => {
 						return (
 							<div className='block__cities-item' key={id}>
 								<img
-									src={`http://localhost:4000/upload/${item.avatar}`}
+									src={`https://pobeda75.online/upload/${item.avatar}`}
 									alt={`${item.name}`}
 								/>
 								{item.name}{" "}

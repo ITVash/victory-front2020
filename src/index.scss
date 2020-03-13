@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Exo+2:300,400,500,600,700,800,900&display=swap&subset=cyrillic');
+@import url("https://fonts.googleapis.com/css?family=Exo+2:300,400,500,600,700,800,900&display=swap&subset=cyrillic");
 * {
 	margin: 0;
 	padding: 0;
@@ -6,51 +6,52 @@
 	font-family: "Arial", sans-serif;
 }
 html {
-  //padding: 80px;
-  //padding-top: 80px;
-  margin: 0;
-  background: #FFF;
-  color: #222;
-  font-weight: 300;
-  width: 100%;
+	//padding: 80px;
+	//padding-top: 80px;
+	margin: 0;
+	background: #fff;
+	color: #222;
+	font-weight: 300;
+	width: 100%;
 }
 
-
 h1 {
-  font-size: 2rem;
-  color: #222;
+	font-size: 2rem;
+	color: #222;
 }
 
 p {
-  line-height: 25px;
+	line-height: 25px;
 	font-size: 16px;
 	font-weight: 400;
-  //font-family: 'Crimson Text';
-  color: #222;
+	//font-family: 'Crimson Text';
+	color: #222;
 }
 
 body {
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Exo 2', 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	padding: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Exo 2", "Segoe UI", "Roboto",
+		"Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+		sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 	width: 100%;
-	background: #FFF;
+	background: #fff;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
 }
 .App {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  //background: #eee;
-  /*background: url('/img/1945.jpg') top center no-repeat;
+	position: relative;
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	//background: #eee;
+	/*background: url('/img/1945.jpg') top center no-repeat;
   background-size: cover;
   z-index: 0;
   &::before {
@@ -88,20 +89,21 @@ code {
 	display: flex;
 	flex-direction: column;
 	&.second {
-		height: auto!important;
+		min-height: auto !important;
 	}
 }
 
 .screen-section {
-	min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+	//min-height: 100vh;
+	display: flex;
+	flex: 1 1 auto;
+	flex-direction: column;
 }
 
 .screen-section .screen-section__title {
 	height: 80px;
 	width: 100%;
-	background: #DF650C;
+	background: #df650c;
 
 	display: flex;
 	align-items: center;
@@ -109,35 +111,35 @@ code {
 }
 
 .screen-section .screen-section__title_orange {
-	background: #DF650C;
+	background: #df650c;
 }
 
 .screen-section .screen-section__title_orange h2 {
-	font-family: 'Exo 2', sans-serif;
+	font-family: "Exo 2", sans-serif;
 	font-size: 32px;
 	line-height: 34px;
-	color: #1C1C1C;
+	color: #1c1c1c;
 
 	font-style: normal;
 	font-weight: normal;
 }
 
 .screen-section .screen-section__title_black {
-	background: #1C1C1C;
+	background: #1c1c1c;
 }
 
-.screen-section .screen-section__title_black h2{
-	font-family: 'Exo 2', sans-serif;
+.screen-section .screen-section__title_black h2 {
+	font-family: "Exo 2", sans-serif;
 	font-size: 32px;
 	line-height: 34px;
-	color: #DF650C;
+	color: #df650c;
 
 	font-style: normal;
 	font-weight: normal;
 }
 
 .description {
-	font-family: 'Exo 2', sans-serif;
+	font-family: "Exo 2", sans-serif;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 26px;
@@ -148,7 +150,7 @@ code {
 	padding: 15px 50px 50px 50px;
 }
 .map {
-	font-family: 'Exo 2', sans-serif;
+	font-family: "Exo 2", sans-serif;
 	font-style: normal;
 	font-weight: normal;
 	font-size: 26px;
@@ -159,9 +161,7 @@ code {
 	padding: 0;
 }
 
-
-@media (max-width: 1200px) { 
-
+@media (max-width: 1200px) {
 	.screen-section .screen-section__title_orange h2 {
 		font-size: 40px;
 	}
@@ -175,14 +175,14 @@ code {
 	}
 }
 
-@media (max-width: 800px) { 
+@media (max-width: 800px) {
 	.wrapper {
 		max-width: 650px;
 	}
 
 	.screen-section .screen-section__title {
-	    padding: 10px 0;
-	    height: unset;
+		padding: 10px 0;
+		height: unset;
 	}
 
 	.screen-section .screen-section__title_black h2 {
@@ -194,12 +194,11 @@ code {
 	}
 
 	.description {
-    	font-size: 20px;
+		font-size: 20px;
 	}
 }
 
-@media (max-width: 600px) { 
-
+@media (max-width: 600px) {
 	.screen-section .screen-section__title_black h2 {
 		font-size: 32px;
 	}
@@ -207,23 +206,19 @@ code {
 	.screen-section .screen-section__title_orange h2 {
 		font-size: 32px;
 	}
-	
 }
 
-@media (max-width: 550px) { 
+@media (max-width: 550px) {
+	.description {
+		padding: 15px 25px 25px 25px;
+	}
 
 	.description {
-    	padding: 15px 25px 25px 25px;
+		font-size: 18px;
 	}
-	
-	.description {
-	    font-size: 18px;
-	}
-	
 }
 
-@media (max-width: 430px) { 
-
+@media (max-width: 430px) {
 	.screen-section .screen-section__title_black h2 {
 		font-size: 28px;
 		line-height: 28px;
@@ -235,7 +230,6 @@ code {
 	}
 
 	.description {
-	    line-height: 20px;
+		line-height: 20px;
 	}
-	
 }

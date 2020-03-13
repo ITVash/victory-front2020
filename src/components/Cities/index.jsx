@@ -57,7 +57,7 @@ const Cities = props => {
 						<label htmlFor='visitedd'>Посетили город</label>
 						<Select
 							value={`${def.visited}`}
-							style={{width:'100px'}}
+							style={{ width: "100px" }}
 							defaultValue='Выберете значение'
 							onChange={e => set({ ...def, visited: e })}
 						>
@@ -120,11 +120,12 @@ const Cities = props => {
 			</Drawer>
 			<div className='block__cities'>
 				{base ? (
+					base &&
 					base.map((item, id) => {
 						return (
 							<div className='block__cities-item' key={id}>
 								<img
-									src={`http://localhost:4000/upload/${item.photo[0]}`}
+									src={`https://pobeda75.online/upload/${item.photo[0]}`}
 									alt={`${item.city}`}
 								/>
 								{item.city}{" "}

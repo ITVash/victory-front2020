@@ -79,7 +79,7 @@ const Home = props => {
 		dots: false,
 		infinite: true,
 		speed: 500,
-		slidesToShow: 2,
+		slidesToShow: 1,
 		slidesToScroll: 1,
 		arrows: true,
 		prevArrow: <OrangeLeft />,
@@ -273,89 +273,95 @@ const Home = props => {
 			<Section type='map' title='Схема маршрута' color='black'>
 				<Maps />
 			</Section>
-			<Section
-				type='description'
-				title='Организационный комитет'
-				color='orange'
-			>
-				{org && (
+			{org && org.length > 0 && (
+				<Section
+					type='description'
+					title='Организационный комитет'
+					color='orange'
+				>
 					<Slider {...settingsRowOrg}>
 						{org.map((item, id) => (
 							<CardSlider
 								key={id}
-								image={`http://localhost:4000/upload/${item.avatar}`}
+								image={`https://pobeda75.online/upload/${item.avatar}`}
 								alt={item.name}
 								name={item.name}
 								desc={item.desc}
 							/>
 						))}
 					</Slider>
-				)}
-			</Section>
+				</Section>
+			)}
 			<section className='screen-section'>
-				<div className='screen-section__title screen-section__title_black'>
-					<h2>Государственная поддержка</h2>
-				</div>
-				<div className='wrapper'>
-					<div className='description'>
-						<Slider {...settings}>
-							{gos &&
-								gos.map((item, id) => {
-									return (
-										<CardSlider
-											key={id}
-											image={`http://localhost:4000/upload/${item.avatar}`}
-											alt={item.name}
-											name={item.name}
-											desc={item.name}
-										/>
-									)
-								})}
-						</Slider>
-					</div>
-				</div>
-				<div className='screen-section__title screen-section__title_orange'>
-					<h2>Медиа поддержка</h2>
-				</div>
-				<div className='wrapper'>
-					<div className='description'>
-						<Slider {...settings}>
-							{media &&
-								media.map((item, id) => {
-									return (
-										<CardSlider
-											key={id}
-											image={`http://localhost:4000/upload/${item.avatar}`}
-											alt={item.name}
-											name={item.name}
-											desc={item.name}
-										/>
-									)
-								})}
-						</Slider>
-					</div>
-				</div>
+				{gos && gos.length > 0 && (
+					<>
+						<div className='screen-section__title screen-section__title_black'>
+							<h2>Государственная поддержка</h2>
+						</div>
+						<div className='wrapper'>
+							<div className='description'>
+								<Slider {...settings}>
+									{gos.map((item, id) => {
+										return (
+											<CardSlider
+												key={id}
+												image={`https://pobeda75.online/upload/${item.avatar}`}
+												alt={item.name}
+												name={item.name}
+												desc={item.desc}
+											/>
+										)
+									})}
+								</Slider>
+							</div>
+						</div>
+					</>
+				)}
+				{media && media.length > 0 && (
+					<>
+						<div className='screen-section__title screen-section__title_orange'>
+							<h2>Медиа поддержка</h2>
+						</div>
+						<div className='wrapper'>
+							<div className='description'>
+								<Slider {...settings}>
+									{media.map((item, id) => {
+										return (
+											<a key={id} href={`${item.link}`} target="_blank" rel="noopener noreferrer"><CardSlider												
+												image={`https://pobeda75.online/upload/${item.avatar}`}
+												alt={item.name}
+												name={item.name}
+												desc={item.desc}
+											/></a>
+										)
+									})}
+								</Slider>
+							</div>
+						</div>
+					</>
+				)}
 			</section>
-			<Section
-				color='black'
-				title='Общественная поддержка и партнеры'
-				type='description'
-			>
-				<Slider {...settingsRow}>
-					{obsh &&
-						 obsh.map((item, id) => {
+			{obsh && obsh.length > 0 && (
+				<Section
+					color='black'
+					title='Общественная поддержка и партнеры'
+					type='description'
+				>
+					<Slider {...settingsRow}>
+						{obsh.map((item, id) => {
 							return (
 								<CardSlider
 									key={id}
-									image={`http://localhost:4000/upload/${item.avatar}`}
+									image={`https://pobeda75.online/upload/${item.avatar}`}
 									alt={item.name}
 									name={item.name}
-									desc={item.name}
+									desc={item.desc}
 								/>
 							)
 						})}
-				</Slider>
-			</Section>
+					</Slider>
+				</Section>
+			)}
 			<Footer />
 		</>
 	)

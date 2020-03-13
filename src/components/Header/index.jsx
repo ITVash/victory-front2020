@@ -1,14 +1,16 @@
-import React, { useState } from "react"
-import { Select } from "antd"
+import React, { useState, useEffect } from "react"
+import { Select, Icon } from "antd"
 import classNames from "classnames"
 import PropTypes from "prop-types"
-import { Link } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import Slider from "react-slick"
 import { connect } from "react-redux"
 
 import "./style.scss"
 
-const { Option } = Select
+import { routeAction } from '../../redux/actions'
+
+
 
 const Header = props => {
 	const settings = {
@@ -22,49 +24,52 @@ const Header = props => {
 		arrows: false,
 		adaptiveHeight: true,
 	}
-	const { second, city, base, photo, title, don } = props
-	const [open, setOpen] = useState(false)
+	const { Option } = Select
+	const history = useHistory()
 	const onChange = value => {
-		console.log(`selected ${value}`);
+		history.push(`/cities/${value}`)
 	}
-	
-	const onBlur = () => {
-		console.log('blur');
+	const { second, city, base, photo, title, don, cities, baseRoute } = props
+	const [open, setOpen] = useState(false)
+	useEffect(() => {
+		cities()
+	}, [cities])
+	const loadScroll = () => {
+		const scroll = document.querySelector(".scroll_top")
+		if (window.pageYOffset >= 800) {
+			scroll.classList.add("show")
+		} else {
+			scroll.classList.remove("show")
+		}
 	}
-	
-	const onFocus = () => {
-		console.log('focus');
-	}
-	
-	const onSearch = val => {
-		console.log('search:', val);
+	window.onscroll = loadScroll
+	const toTop = () => {
+		window.scrollTo(0, 0)
 	}
 	return (
+		<> <div className="scroll_top" onClick={toTop}><Icon type="arrow-up" theme="outlined" /></div>
 		<header className={classNames("maim-screen", { second: second })}>
 			<div className='nav-wrapper'>
 				<div className='nav'>
 					<div className='nav__section nav__section_1'>
-						<img src='/img/flag.png' alt='' className='nav__flag' />
+						<Link to="/"><img src='/img/flag.png' alt='' className='nav__flag' /></Link>
 
 						<div className='seartch-input'>
 							<Select
 								showSearch
-								className='seartch-input__input'
+								//className='seartch-input__input'
 								placeholder='Выберите ваш город'
 								style={{ width: "100vw" }}
-								optionFilterProp="children"
+								optionFilterProp='children'
 								onChange={onChange}
-								onFocus={onFocus}
-								onBlur={onBlur}
-								onSearch={onSearch}
 								filterOption={(input, option) =>
-									option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+									option.props.children.toLowerCase().indexOf(input.toLowerCase()) >=
+									0
 								}
-								
 							>
-								<Option value="jack">Jack</Option>
-    <Option value="lucy">Lucy</Option>
-    <Option value="tom">Tom</Option>
+								{baseRoute && baseRoute.map((item, id) => (
+									<Option key={id} value={item.city}>{item.city}</Option>
+								))}
 							</Select>
 						</div>
 					</div>
@@ -196,7 +201,7 @@ const Header = props => {
 									<div className='photo' key={id}>
 										<div className='photo__orden'></div>
 										<img
-											src={`http://localhost:4000/upload/${item}`}
+											src={`https://pobeda75.online/upload/${item}`}
 											alt={base.city}
 											className='photo__img'
 										/>
@@ -206,7 +211,7 @@ const Header = props => {
 					</Slider>
 				)}
 			</div>
-		</header>
+		</header></>
 	)
 }
 
@@ -217,4 +222,4 @@ Header.propTypes = {
 	title: PropTypes.string,
 }
 
-export default connect()(Header)
+export default connect(({routeMap}) => ({baseRoute: routeMap.items}), {...routeAction})(Header)

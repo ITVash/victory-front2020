@@ -2,6 +2,25 @@
 	border-bottom: 10px solid #1c1c1c;
 	padding: 0 35px;
 }
+.scroll_top {
+	position: fixed;
+	padding: 5px 10px;
+	left: 10px;
+	bottom: 30px;
+	text-align: center;
+	background: #df650c;
+	font-size: 24px;
+	border-radius: 5px;
+	border: 3px solid #000;
+	opacity: 0;
+	transition: all .300s linear;
+	z-index: 9999;
+	cursor: pointer;
+	&.show {
+		opacity: 1 !important;
+		bottom: 30px;
+	}
+}
 .photo {
 	width: 100%;
 	height: 100vh;
