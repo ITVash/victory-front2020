@@ -3,6 +3,8 @@ import PropTypes from "prop-types"
 import { connect } from "react-redux"
 import { withRouter } from "react-router-dom"
 import LightBox from "react-image-lightbox"
+import ReactPlayer from "react-player"
+import "react-image-lightbox/style.css"
 
 import { newsAction } from "../../redux/actions"
 import { Header, Section, Footer, News as NewsBase } from "../../components"
@@ -35,7 +37,7 @@ const News = props => {
 									key={id}
 									date={`${new Date(item.createdAt).toLocaleDateString(
 										"ru-RU",
-									)} ${new Date(item.createdAt).toLocaleTimeString("ru-RU")}`}
+									)} - ${new Date(item.createdAt).toLocaleTimeString("ru-RU")}`}
 									title={item.title}
 									link={item._id}
 								/>
@@ -53,7 +55,7 @@ const News = props => {
 										key={item._id}
 										date={`${new Date(item.createdAt).toLocaleDateString(
 											"ru-RU",
-										)} ${new Date(item.createdAt).toLocaleTimeString("ru-RU")}`}
+										)}`}
 										title={item.title}
 										content={item.body}
 										views
@@ -61,11 +63,32 @@ const News = props => {
 								))}
 						</div>
 					</Section>
-					<Section title='Фото и видео' color='black' type='gallery'>
-						{fullNews &&
-							fullNews.map(item => {
-								return item.images ? (
-									item.images.map((items, id) => (
+
+					{fullNews &&
+						fullNews.map(item => {
+							return item.images ? (
+								<Section title='Фото и видео' color='black' type='gallery'>
+									{item.videos &&
+										item.videos.map((video, id) => (
+											<article key={id} className='gallery-card'>
+												<a
+													target='_blank'
+													rel='noopener noreferrer'
+													href={`${video}`}
+												>
+													<div className='gallery-card__wrapper'>
+														<div className='gallery-card__img-container'>
+															<ReactPlayer
+																width='100%'
+																height='220px'
+																url={`${video}`}
+															/>
+														</div>
+													</div>
+												</a>
+											</article>
+										))}
+									{item.images.map((items, id) => (
 										<article key={id} className='gallery-card'>
 											<div
 												className='gallery-card__wrapper'
@@ -85,18 +108,18 @@ const News = props => {
 												</div>
 											</div>
 										</article>
-									))
-								) : (
-									<span>Нет фото для показа</span>
-								)
-							})}
-						{open.open && (
-							<LightBox
-								mainSrc={open.photo}
-								onCloseRequest={() => setOpen({ open: false })}
-							/>
-						)}
-					</Section>
+									))}
+									{open.open && (
+										<LightBox
+											mainSrc={open.photo}
+											onCloseRequest={() => setOpen({ open: false })}
+										/>
+									)}
+								</Section>
+							) : (
+								<span>Нет фото для показа</span>
+							)
+						})}
 				</>
 			)}
 			<Footer />

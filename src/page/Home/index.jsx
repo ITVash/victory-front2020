@@ -225,7 +225,7 @@ const Home = props => {
 	return (
 		<>
 			<Header />
-			<Section type='description' title='О проекте' color='orange'>
+			<Section type='description' title='О проекте' color='orange' hover>
 				<p>Проект «Наша Великая Победа» начал свое развитие с 2012 года.</p>
 				<p>
 					Зародился проект у активистов русских организаций Крыма, которые

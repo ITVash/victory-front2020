@@ -61,6 +61,14 @@ const NewsAdmin = props => {
 							multiple
 						/>
 					</div>
+					<div className='create__title'>
+						<label htmlFor='title'>Ссылка на видео с Youtube</label>
+						<Input
+							id='title'
+							//value={`ссылка`}
+							onChange={e => set(prev => ({ ...prev, videos: prev.videos.concat(e.target.value)}))}
+						/>
+					</div>
 					<div className='create__footer'>
 						<div
 							style={{

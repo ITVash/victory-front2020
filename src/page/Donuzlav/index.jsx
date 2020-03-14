@@ -106,10 +106,6 @@ const Donuzlav = props => {
 						<div className='gallery-card__img-container'>
 							<ReactPlayer width='100%' height='200px' url='https://www.youtube.com/watch?v=Lip1_ci4PA0&feature=emb_logo' />
 						</div>
-
-						<h3 className='gallery-card__title'>Донузлав 2015</h3>
-
-						<p className='gallery-card__description'>Флаг Победы. День ВМФ 2015. Севастополь.</p>
 					</div></a>
 				</article>
 				<article className='gallery-card'>

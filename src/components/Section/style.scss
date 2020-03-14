@@ -4,6 +4,17 @@
 	padding: 100px 0;
 	flex-wrap: wrap;
 }
+.hover {
+	& p {
+	//white-space: nowrap; /* Запрещаем перенос строк */
+	//overflow: hidden;
+	//text-overflow: ellipsis;
+	//padding: 15px 50px 50px 50px;
+	//width: 100%;
+	column-count: 1;
+	//column-width: 200px;
+	}
+}
 
 .gallery .gallery-card__wrapper {
 	display: flex;

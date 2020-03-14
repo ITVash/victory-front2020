@@ -27,9 +27,10 @@ const Header = props => {
 	const { Option } = Select
 	const history = useHistory()
 	const onChange = value => {
+		currentID(value)
 		history.push(`/cities/${value}`)
 	}
-	const { second, city, base, photo, title, don, cities, baseRoute } = props
+	const { second, city, base, photo, title, don, cities, baseRoute, currentID } = props
 	const [open, setOpen] = useState(false)
 	useEffect(() => {
 		cities()

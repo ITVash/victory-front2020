@@ -5,7 +5,7 @@ import classNames from "classnames"
 import './style.scss'
 
 const Section = props => {
-	const { color, children, title, type } = props
+	const { color, children, title, type, hover } = props
 	return (
 		<section className='screen-section'>
 			<div
@@ -17,7 +17,7 @@ const Section = props => {
 				<h2>{title}</h2>
 			</div>
 			<div className='wrapper'>
-				<div className={`${type}`}>{children}
+				<div className={classNames(`${type}`, {hover: hover})}>{children}
 				</div>
 			</div>
 		</section>
@@ -27,7 +27,8 @@ const Section = props => {
 Section.propTypes = {
 	color: PropTypes.oneOf(["orange", "black"]),
 	title: PropTypes.string,
-	type: PropTypes.string
+	type: PropTypes.string,
+	hover: PropTypes.bool
 }
 
 export default Section

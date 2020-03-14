@@ -1,28 +1,72 @@
 .news {
-  min-width: 200px;
-  
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  &__block {
-    padding: 20px;
-    width: 100%;
-    transition: all .800s;
-    position: relative;
-    &:before {
-      content: '';
-      position: absolute;
-      height: 2px;
-      width: 100%;
-      bottom: 0;
-      left: 0;
-      background: radial-gradient(rgb(200, 200, 200), rgba(255, 255, 255, 1));
-    }
-    &-date {
-      padding-bottom: 10px;
-    }
-    &:hover {
-      background: rgba(220,220,220, .4);
-    }
-  }
+	min-width: 200px;
+
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	&__detail {
+		&-date {
+			font-family: "Exo 2";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 40px;
+			line-height: 48px;
+			color: #1c1c1c;
+			position: relative;
+			& .left-line {
+				position: absolute;
+				width: 350px;
+				//height: 0px;
+				left: 0px;
+				bottom: 0;
+			}
+		}
+		&-title {
+			font-family: "Exo 2";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 40px;
+			line-height: 53px;
+			color: #000000;
+      text-align: center;
+      position: relative;
+			& .center {
+				position: absolute;
+				width: 1400px;
+				//height: 0px;
+				left: 0px;
+				bottom: 0;
+			}
+		}
+		&-content {
+			font-family: "Exo 2";
+			font-style: normal;
+			font-weight: normal;
+			font-size: 26px;
+			line-height: 35px;
+
+			color: #000000;
+		}
+	}
+	&__block {
+		padding: 20px;
+		width: 100%;
+		transition: all 0.8s;
+		position: relative;
+		&:before {
+			content: "";
+			position: absolute;
+			height: 2px;
+			width: 100%;
+			bottom: 0;
+			left: 0;
+			background: radial-gradient(rgb(200, 200, 200), rgba(255, 255, 255, 1));
+		}
+		&-date {
+			padding-bottom: 10px;
+		}
+		&:hover {
+			background: rgba(220, 220, 220, 0.4);
+		}
+	}
 }

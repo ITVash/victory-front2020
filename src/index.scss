@@ -163,6 +163,18 @@ code {
 	padding: 0;
 }
 
+.install {
+  position: absolute;
+  height: 150px;
+  width: 200px;
+  background-color: #fff;
+  display: none;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
 @media (max-width: 1200px) {
 	.screen-section .screen-section__title_orange h2 {
 		font-size: 40px;

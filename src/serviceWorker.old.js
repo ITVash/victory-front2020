@@ -32,8 +32,7 @@ export function register(config) {
     }
 
     window.addEventListener('load', () => {
-      const swFileName = process.env.NODE_ENV === 'production' ? 'service-worker.js' : 'sw.js'
-      const swUrl = `${process.env.PUBLIC_URL}/${swFileName}`;
+      const swUrl = `${process.env.PUBLIC_URL}/service-worker.js`;
 
       if (isLocalhost) {
         // This is running on localhost. Let's check if a service worker still exists or not.
@@ -53,37 +52,6 @@ export function register(config) {
       }
     });
   }
-}
-
-let defenderPrompt
-window.addEventListener('beforeinstallprompt', e => {
-  e.preventDefault()
-  console.log('platform', e.platforms)
-  defenderPrompt = e
-  showWindowInstall()
-
-})
-
-const showWindowInstall = () => {
-  const installWindow = document.querySelector('.install')
-  const installBtn = document.querySelector('.install button')
-  installWindow.style.display = 'block'
-  installBtn.addEventListener('click', installApp)
-}
-
-const installApp = () => {
-  const installWindow = document.querySelector('.install')
-  installWindow.style.display = 'none'
-  defenderPrompt.prompt()
-  defenderPrompt.userChoice
-    .then(choice => {
-      if (choice.outcome === 'accepted') {
-        alert('Приложение установлено')
-      } else {
-        alert('Не удается установить приложение')
-      }
-      defenderPrompt = null
-    })
 }
 
 function registerValidSW(swUrl, config) {
@@ -162,8 +130,12 @@ function checkValidServiceWorker(swUrl, config) {
 
 export function unregister() {
   if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.ready.then(registration => {
-      registration.unregister();
-    });
+    navigator.serviceWorker.ready
+      .then(registration => {
+        registration.unregister();
+      })
+      .catch(error => {
+        console.error(error.message);
+      });
   }
 }

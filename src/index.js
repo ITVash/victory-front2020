@@ -9,6 +9,7 @@ import "antd/dist/antd.css"
 
 import App from "./App"
 import * as serviceWorker from "./serviceWorker"
+//import { subscribeUser } from './subscribe'
 
 import store from './redux/store'
 window.store = store
@@ -32,7 +33,9 @@ if (token) {
     store.dispatch(AuthAction.logout())
   }
 }*/
+console.log('process', process.env.REACT_APP_PUBLIC_VAPID_KEY)
 
 ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider>, document.getElementById("root"))
 
-serviceWorker.unregister()
+serviceWorker.register()
+//subscribeUser()
