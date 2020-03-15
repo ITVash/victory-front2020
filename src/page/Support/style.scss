@@ -1,0 +1,137 @@
+.support-cards {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 50px 25px;
+}
+
+.support-card {
+	display: flex;
+	flex-basis: 50%;
+}
+
+.support-card .support-card__wrapper {
+	padding: 20px;
+	display: flex;
+	width: 100%;
+}
+
+.support-card .support-card__image-container {
+	width: 150px;
+	height: 150px;
+	min-width: 150px;
+	min-height: 150px;
+
+	border-radius: 50%;
+	overflow: hidden;
+}
+
+.support-card .support-card__image {
+	width: 150px;
+	height: 150px;
+
+	object-position: center;
+	object-fit: cover;
+}
+
+.support-card .support-card__about {
+	padding-left: 35px;
+	width: 100%;
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.support-card .support-card__title {
+	font-family: 'Exo 2';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 26px;
+	line-height: 30px;
+
+	text-align: center;
+
+	color: #000000;
+
+	width: 100%;
+	text-align: center;
+}
+
+.support-card .support-card__description {
+	font-family: 'Exo 2';
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	line-height: 29px;
+
+	color: rgba(0, 0, 0, 0.5);
+
+	width: 100%;
+}
+
+@media (max-width: 1200px) { 
+	.support-card .support-card__description {
+		font-size: 20px;
+	}
+
+	.support-card .support-card__image-container {
+		width: 120px;
+		height: 120px;
+		min-width: 120px;
+		min-height: 120px;
+	}
+
+	.support-card .support-card__image {
+		width: 120px;
+		height: 120px;
+	}
+
+	.support-card .support-card__about {
+		padding-left: 15px;
+	}
+}
+
+@media (max-width: 1024px) { 
+
+	.support-card .support-card__description {
+		font-size: 18px;
+		line-height: 20px;
+	}
+}
+
+@media (max-width: 800px) { 
+
+	.support-card {
+		display: flex;
+		flex-basis: 100%;
+		margin-bottom: 15px;
+	}
+
+	.support-card .support-card__wrapper {
+		padding: 5px;
+		border: 1px #DF650C solid;
+		border-radius: 10px;
+	}
+}
+
+
+@media (max-width: 440px) { 
+
+	.support-card .support-card__image-container {
+		width: 80px;
+		height: 80px;
+		min-width: 80px;
+		min-height: 80px;
+	}
+
+	.support-card .support-card__image {
+		width: 80px;
+		height: 80px;
+	}
+
+	.support-card .support-card__title {
+		font-size: 24px;
+		text-align: left;
+	}
+}
