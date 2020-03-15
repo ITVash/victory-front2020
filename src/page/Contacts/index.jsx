@@ -56,31 +56,32 @@ const Contacts = props => {
 									<div className='contact-card__image-container'>
 										<img
 											className='contact-card__image'
-											src='img/con1.jpg'
+											src='img/con3.jpg'
 											alt=''
 										/>
 									</div>
 									<div className='contact-card__title'>
-										Ельников Алексей Алексеевич
+										Семенов Александр Александрович
 									</div>
 									<div className='contact-card__description'>
-										Участник Автопробега
+										Заместитель председателя РОД “Патриотические силы Донбасса”
+										(г. Донецк) ДНР
 									</div>
 									<div className='contact-card__contacts'>
 										<div className='contact-card__phones'>
 											<div className='contact-card__title'>Номера</div>
-											<div className='contact-card__phone'>+79780728789</div>
-											<div className='contact-card__phone'>+380713523262</div>
+											<div className='contact-card__phone'>+79296392006</div>
+											<div className='contact-card__phone'>+380713344935</div>
 										</div>
 										<div className='contact-card__socials'>
 											<a
-												href='https://vk.com/nezvanniy_alex'
+												href='https://vk.com/id390660284'
 												className='footer__icon'
 											>
 												<img src='img/vk.png' alt='' />
 											</a>
 											<a
-												href='https://www.instagram.com/nezvanniy01/'
+												href='https://www.instagram.com/semenov_al_al/'
 												className='footer__icon'
 											>
 												<img src='img/insta.png' alt='' />
@@ -122,8 +123,8 @@ const Contacts = props => {
 												href='https://www.instagram.com/mishasem_donetsk/'
 												className='footer__icon'
 											>
-												<img src='img/facebook.png' alt='' />
-											</a>							
+												<img src='img/insta.png' alt='' />
+											</a>
 										</div>
 									</div>
 								</div>
@@ -134,29 +135,34 @@ const Contacts = props => {
 									<div className='contact-card__image-container'>
 										<img
 											className='contact-card__image'
-											src='img/con3.jpg'
+											src='img/con1.jpg'
 											alt=''
 										/>
 									</div>
 									<div className='contact-card__title'>
-										Семенов Александр Александрович
+										Ельников Алексей Алексеевич
 									</div>
 									<div className='contact-card__description'>
-										Заместитель председателя РОД “Патриотические силы Донбасса”
-										(г. Донецк) ДНР
+										Участник Автопробега
 									</div>
 									<div className='contact-card__contacts'>
 										<div className='contact-card__phones'>
 											<div className='contact-card__title'>Номера</div>
-											<div className='contact-card__phone'>+79296392006</div>
-											<div className='contact-card__phone'>+380713344935</div>
+											<div className='contact-card__phone'>+79780728789</div>
+											<div className='contact-card__phone'>+380713523262</div>
 										</div>
 										<div className='contact-card__socials'>
-											<a href='https://vk.com/id390660284' className='footer__icon'>
+											<a
+												href='https://vk.com/nezvanniy_alex'
+												className='footer__icon'
+											>
 												<img src='img/vk.png' alt='' />
 											</a>
-											<a href='https://www.instagram.com/semenov_al_al/' className='footer__icon'>
-												<img src='img/facebook.png' alt='' />
+											<a
+												href='https://www.instagram.com/nezvanniy01/'
+												className='footer__icon'
+											>
+												<img src='img/insta.png' alt='' />
 											</a>
 										</div>
 									</div>

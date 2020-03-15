@@ -117,10 +117,6 @@ const Donuzlav = props => {
 								className='gallery-card__img'
 							/>
 						</div>
-
-						<h3 className='gallery-card__title'>Донузлав 2018</h3>
-
-						<p className='gallery-card__description'>Фотографии сообщества</p>
 					</div></a>
 				</article>
 				<article className='gallery-card'>
@@ -132,10 +128,6 @@ const Donuzlav = props => {
 								className='gallery-card__img'
 							/>
 						</div>
-
-						<h3 className='gallery-card__title'>КРЫМ. ДОНУЗЛАВ –2017</h3>
-
-						<p className='gallery-card__description'>В период с 10 по 21 августа 2017 года на территории г. Евпатории, в пгт. Новоозерное, при поддержке информационного агентства "Ньюс Фронт" (NEWS-FRONT.INFO) прошла работа ХI Молодежно-патриотического лагеря-форума "Крым. Донузлав – 2017".</p>
 					</div></a>
 				</article>
 				<article className='gallery-card'>
@@ -147,10 +139,6 @@ const Donuzlav = props => {
 								className='gallery-card__img'
 							/>
 						</div>
-
-						<h3 className='gallery-card__title'>ДОНУЗЛАВ 2016</h3>
-
-						<p className='gallery-card__description'>Фотографии сообщества</p>
 					</div></a>
 				</article>
 				<article className='gallery-card'>
@@ -162,10 +150,6 @@ const Donuzlav = props => {
 								className='gallery-card__img'
 							/>
 						</div>
-
-						<h3 className='gallery-card__title'>ДОНУЗЛАВ 2015 ПЕРВАЯ СМЕНА</h3>
-
-						<p className='gallery-card__description'>Фотографии сообщества</p>
 					</div></a>
 				</article>
 				<article className='gallery-card'>
@@ -177,10 +161,6 @@ const Donuzlav = props => {
 								className='gallery-card__img'
 							/>
 						</div>
-
-						<h3 className='gallery-card__title'>ДОНУЗЛАВ 2015 ВТОРАЯ СМЕНА!</h3>
-
-						<p className='gallery-card__description'>Вторая смена Молодежно Патриотического Лагеря-форума Крым - Донузлав 2015!</p>
 					</div></a>
 				</article>
 				<article className='gallery-card'>
@@ -192,10 +172,6 @@ const Donuzlav = props => {
 								className='gallery-card__img'
 							/>
 						</div>
-
-						<h3 className='gallery-card__title'>Донузлав 2014</h3>
-
-						<p className='gallery-card__description'>Фотоархив</p>
 					</div></a>
 				</article>
 			</Section>

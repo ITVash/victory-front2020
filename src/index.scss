@@ -164,15 +164,23 @@ code {
 }
 
 .install {
-  position: absolute;
-  height: 150px;
+  position: fixed;
+  height: 170px;
   width: 200px;
   background-color: #fff;
   display: none;
-  top: 50%;
+	top: 50%;
+	text-align: center;
+	font-size: 24px;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 9999;
+	z-index: 9999;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	& button {
+		padding: 5px 10px;
+		border-radius: 5px;
+		border: 1px solid rgba(175, 175, 175, 0.76);
+	}
 }
 
 @media (max-width: 1200px) {

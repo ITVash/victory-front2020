@@ -97,7 +97,7 @@ const App = () => {
 				</span>
 			</div>
    */
-  
+  window.process = process.env.REACT_APP_PUBLIC_VAPID_KEY
 	return (
     <div className='App'>
       <Switch>

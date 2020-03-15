@@ -4,6 +4,10 @@
 	padding: 100px 0;
 	flex-wrap: wrap;
 }
+.slick-track {
+	display: flex;
+	align-items: start !important;
+}
 .hover {
 	& p {
 	//white-space: nowrap; /* Запрещаем перенос строк */

@@ -88,8 +88,50 @@ const Home = props => {
 			{
 				breakpoint: 1024,
 				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+					infinite: true,
+					//dots: false
+				},
+			},
+			{
+				breakpoint: 800,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
+			{
+				breakpoint: 600,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
+			{
+				breakpoint: 480,
+				settings: {
+					slidesToShow: 1,
+					slidesToScroll: 1,
+				},
+			},
+		],
+	}
+	const settings2 = {
+		dots: false,
+		infinite: true,
+		speed: 500,
+		slidesToShow: 5,
+		slidesToScroll: 1,
+		arrows: true,
+		prevArrow: <OrangeLeft />,
+		nextArrow: <OrangeRight />,
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
 					slidesToShow: 4,
-					slidesToScroll: 4,
+					slidesToScroll: 1,
 					infinite: true,
 					//dots: false
 				},
@@ -98,14 +140,14 @@ const Home = props => {
 				breakpoint: 800,
 				settings: {
 					slidesToShow: 3,
-					slidesToScroll: 3,
+					slidesToScroll: 1,
 				},
 			},
 			{
 				breakpoint: 600,
 				settings: {
 					slidesToShow: 2,
-					slidesToScroll: 2,
+					slidesToScroll: 1,
 				},
 			},
 			{
@@ -126,7 +168,7 @@ const Home = props => {
 		nextArrow: <BlackRight />,
 		//centerPadding: "60px",
 		slidesToShow: 5,
-		rows: 3,
+		rows: 1,
 		slidesPerRow: 1,
 		speed: 500,
 		responsive: [
@@ -134,7 +176,7 @@ const Home = props => {
 				breakpoint: 1024,
 				settings: {
 					slidesToShow: 4,
-					rows: 3,
+					rows: 1,
 					slidesPerRow: 1,
 					infinite: true,
 					//dots: false
@@ -144,7 +186,7 @@ const Home = props => {
 				breakpoint: 800,
 				settings: {
 					slidesToShow: 3,
-					rows: 2,
+					rows: 1,
 					slidesPerRow: 1,
 				},
 			},
@@ -152,7 +194,7 @@ const Home = props => {
 				breakpoint: 600,
 				settings: {
 					slidesToShow: 2,
-					rows: 2,
+					rows: 1,
 					slidesPerRow: 1,
 				},
 			},
@@ -160,7 +202,7 @@ const Home = props => {
 				breakpoint: 480,
 				settings: {
 					slidesToShow: 1,
-					rows: 2,
+					rows: 1,
 					slidesPerRow: 1,
 				},
 			},
@@ -172,7 +214,7 @@ const Home = props => {
 		prevArrow: <BlackLeft />,
 		nextArrow: <BlackRight />,
 		slidesToShow: 5,
-		rows: 3,
+		rows: 1,
 		slidesPerRow: 1,
 		speed: 500,
 		responsive: [
@@ -180,7 +222,7 @@ const Home = props => {
 				breakpoint: 1024,
 				settings: {
 					slidesToShow: 4,
-					rows: 3,
+					rows: 1,
 					slidesPerRow: 1,
 					infinite: true,
 				},
@@ -189,7 +231,7 @@ const Home = props => {
 				breakpoint: 800,
 				settings: {
 					slidesToShow: 3,
-					rows: 2,
+					rows: 1,
 					slidesPerRow: 1,
 				},
 			},
@@ -300,7 +342,7 @@ const Home = props => {
 						</div>
 						<div className='wrapper'>
 							<div className='description'>
-								<Slider {...settings}>
+								<Slider {...settings2}>
 									{gos.map((item, id) => {
 										return (
 											<CardSlider
@@ -324,7 +366,7 @@ const Home = props => {
 						</div>
 						<div className='wrapper'>
 							<div className='description'>
-								<Slider {...settings}>
+								<Slider {...settings2}>
 									{media.map((item, id) => {
 										return (
 											<a key={id} href={`${item.link}`} target="_blank" rel="noopener noreferrer"><CardSlider												

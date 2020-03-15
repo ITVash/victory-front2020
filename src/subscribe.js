@@ -12,11 +12,12 @@ const urlBase64ToUint8Array = (base64String) => {
   }
   return outputArray;
 }
-
-const convertVapidKey = urlBase64ToUint8Array(process.env.REACT_APP_PUBLIC_VAPID_KEY)
+const publicKey = 'BHh5reWDh2PEM9tXs93KJvRRPf74B7Nu9a6kFXm8q7K8Xwx5qizUPf9I-UpKgAPbZCd3axoQzhWwBC40Pw8b_ck'
+const uri = "https://pobeda75.online"
+const convertVapidKey = urlBase64ToUint8Array(publicKey)
 
 const sendSubscribe = subscribe => {
-  return fetch(`${process.env.REACT_APP_API_URL}/notifications/subscribe`, {
+  return fetch(`${uri}/notifications/subscribe`, {
     method: 'POST',
     body: JSON.stringify(subscribe),
     headers: {

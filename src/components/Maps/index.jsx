@@ -10,7 +10,7 @@ const Maps = props => {
 	const history = useHistory()
 	const { base, currentID, coords } = props
 	const coord = {
-		center: [61.22704, 102.342258],
+		center: [57.62704, 37.342258],
 		zoom: 4,
 	}
 	let interval

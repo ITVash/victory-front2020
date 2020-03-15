@@ -166,7 +166,7 @@ const Header = props => {
 				{photo && (
 					<img src='/img/donuzlav.png' alt='Донузлав' className='photo__img' />
 				)}
-				{!city && (
+				{!city && !don && (
 					<Slider {...settings}>
 						<div className='slider'>
 							<div className='slider__gradient-overlay'>

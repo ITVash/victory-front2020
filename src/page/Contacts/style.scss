@@ -183,17 +183,17 @@
 	height: 200px;
 	width: 200px;
 
-	object-position: center;
+	object-position: 0 0;
 	object-fit: cover;
 }
 
 .contact-card .contact-card__title {
 	font-family: 'Exo 2';
-	font-style: normal;
-	font-weight: normal;
+	font-style: 24px;
+	//font-weight: normal;
 	font-size: 35px;
-	line-height: 42px;
-
+	line-height: 26px;
+	text-align: center;
 	color: #000000;
 }
 

@@ -104,7 +104,7 @@ const Header = props => {
 
 	useEffect(() => {
 		if (current) {
-			showID(decodeURI(current))
+			showID(current)
 		}
 	}, [showID, current])
 	useEffect(() => {
@@ -127,16 +127,17 @@ const Header = props => {
 		}
 	}
 	const support = peopleBase.filter(item => item.cities === current)
+	const filterBase = citiesBase.filter(item => item.city === current)
 	return (
 		<>
-			<HeaderBase city base={citiesBase[0]} title={current} />
+			<HeaderBase city base={filterBase[0]} title={current} />
 			<Section color='orange' title='Описание' type='description'>
-				{citiesBase && citiesBase.map(item => item.body)}
+				{filterBase && filterBase.map(item => item.body)}
 			</Section>
 			<Section color='black' title='Карта города' type='map'>
 				<YMaps>
-					{citiesBase &&
-						citiesBase.map(item => {
+					{filterBase &&
+						filterBase.map(item => {
 							return (
 								<Map
 									key={item._id + 1}
@@ -193,8 +194,8 @@ const Header = props => {
 				</Section>
 			)}
 
-			{citiesBase &&
-				citiesBase.map(item => {
+			{filterBase &&
+				filterBase.map(item => {
 					return item.images.length > 0 ? (
 						<Section
 							key={item._id + 1}
