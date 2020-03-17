@@ -47,6 +47,12 @@ const Header = props => {
 	const toTop = () => {
 		window.scrollTo(0, 0)
 	}
+	/**
+	 * <span className='lang-switcher__lang lang-switcher__lang_active'>
+								Ru
+							</span>
+							<span className='lang-switcher__lang'>En</span>
+	 */
 	return (
 		<> <div className="scroll_top" onClick={toTop}><Icon type="arrow-up" theme="outlined" /></div>
 		<header className={classNames("maim-screen", { second: second })}>
@@ -85,10 +91,10 @@ const Header = props => {
 
 					<div className='nav__section nav__section_3'>
 						<div className='lang-switcher'>
-							<span className='lang-switcher__lang lang-switcher__lang_active'>
-								Ru
+						<span className='lang-switcher__lang lang-switcher__lang_active'>
+								{" "}
 							</span>
-							<span className='lang-switcher__lang'>En</span>
+								<span className='lang-switcher__lang'>{" "}</span>
 						</div>
 
 						<div

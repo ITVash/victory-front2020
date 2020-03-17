@@ -75,7 +75,7 @@ const BlackRight = ({ onClick }) => {
 const Home = props => {
 	const { people, basePeople } = props
 
-	const settings = {
+	/*const settings = {
 		dots: false,
 		infinite: true,
 		speed: 500,
@@ -116,7 +116,7 @@ const Home = props => {
 				},
 			},
 		],
-	}
+	}*/
 	const settings2 = {
 		dots: false,
 		infinite: true,

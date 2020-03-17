@@ -6,7 +6,7 @@
 	position: fixed;
 	padding: 5px 10px;
 	left: 10px;
-	bottom: 30px;
+	bottom: 60px;
 	text-align: center;
 	background: #df650c;
 	font-size: 24px;
@@ -18,7 +18,7 @@
 	cursor: pointer;
 	&.show {
 		opacity: 1 !important;
-		bottom: 30px;
+		bottom: 130px;
 	}
 }
 .photo {

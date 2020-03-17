@@ -12,6 +12,17 @@ const actions = {
   _logout: () => ({
     type: 'AUTH:LOGOUT',
   }),
+  getMe: () => async dispatch => {
+    await dispatch(actions.isLoading(true))
+    try {
+      const data = await auth.getMe()
+      const obj = await data.data
+      await dispatch(actions._login(obj))
+      await dispatch(actions.isLoading(false))
+    } catch (err) {
+      console.log('err', err)
+    }
+  },
   logout: () => async dispatch => {
     await dispatch(actions.isLoading(true))
     localStorage.removeItem('token')

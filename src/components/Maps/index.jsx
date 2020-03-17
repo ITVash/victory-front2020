@@ -12,6 +12,7 @@ const Maps = props => {
 	const coord = {
 		center: [57.62704, 37.342258],
 		zoom: 4,
+		//behaviors: ["nodrag", "scrollZoom"]
 	}
 	let interval
 	let attemtion = 0

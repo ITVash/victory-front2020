@@ -27,19 +27,19 @@ const Contacts = props => {
 							<p className='contact-section__item'>
 								nashapobeda75@gmail.com -{" "}
 								<span className='contact-section__info'>
-									можно вставить краткое описание для чего эта почта
+									Сюда вы можете задать вопрос связанный с Автопробегом
 								</span>
 							</p>
 							<p className='contact-section__item'>
 								itdwebcompany@gmail.com -{" "}
 								<span className='contact-section__info'>
-									можно вставить краткое описание для чего эта почта
+									Сюда вы можете задать вопрос связанный с работой сайта
 								</span>
 							</p>
 							<p className='contact-section__item'>
 								al.al.semenov@mail.ru -{" "}
 								<span className='contact-section__info'>
-									можно вставить краткое описание для чего эта почта
+									Сюда вы можете задать вопрос по проекту
 								</span>
 							</p>
 						</div>
@@ -101,7 +101,7 @@ const Contacts = props => {
 										/>
 									</div>
 									<div className='contact-card__title'>
-										Лисицын Михаил Александрович
+										Семенов Михаил Александрович
 									</div>
 									<div className='contact-card__description'>
 										Учредитель ITD Company

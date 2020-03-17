@@ -4,7 +4,17 @@ import { Button, Drawer, Input, Icon, Select } from "antd"
 
 import "./style.scss"
 const Cities = props => {
-	const { base, def, set, addSlider, images, save, currentID } = props
+	const {
+		base,
+		def,
+		set,
+		addSlider,
+		images,
+		save,
+		currentID,
+		video,
+		setVideo,
+	} = props
 	const { Option } = Select
 	const [cities, setCities] = useState(false)
 	console.log("base", base)
@@ -97,9 +107,17 @@ const Cities = props => {
 						<label htmlFor='title'>Ссылка на видео с Youtube</label>
 						<Input
 							id='title'
-							//value={`ссылка`}
-							onChange={e => set(prev => ({ ...prev, videos: prev.videos.concat(e.target.value)}))}
+							value={video}
+							onChange={e => setVideo(e.target.value)}
 						/>
+						<Button
+							type='default'
+							onClick={() =>
+								set(prev => ({ ...prev, videos: prev.videos.concat(video) }))
+							}
+						>
+							+
+						</Button>
 					</div>
 					<div className='create__footer'>
 						<div

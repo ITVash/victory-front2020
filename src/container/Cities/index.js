@@ -21,6 +21,7 @@ const Cities = props => {
 		images: [],
 		videos: [],
 	})
+	const [video, setVideo] = useState("")
 	const addSlider = e => {
 		const files = e.target.files
 		const data = []
@@ -82,6 +83,7 @@ const Cities = props => {
 			photo: null
 		})
 		currentID(null)
+		setVideo("")
 	}
 	useEffect(() => {
 		cities()
@@ -98,6 +100,8 @@ const Cities = props => {
 			addSlider={addSlider}
 			images={images}
 			save={save}
+			video={video}
+			setVideo={setVideo}
 		/>
 	)
 }

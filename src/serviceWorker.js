@@ -57,10 +57,9 @@ export function register(config) {
 let defenderPrompt
 window.addEventListener('beforeinstallprompt', e => {
   e.preventDefault()
-  console.log('platform', e.platforms)
+  console.log('platform', e)
   defenderPrompt = e
   showWindowInstall()
-
 })
 
 window.addEventListener('appinstalled', (evt) => {
@@ -71,8 +70,10 @@ window.addEventListener('appinstalled', (evt) => {
 
 const showWindowInstall = () => {
   const installWindow = document.querySelector('.install')
+  const installClose = document.querySelector('.install span')
   const installBtn = document.querySelector('.install button')
   installWindow.style.display = 'block'
+  installClose.addEventListener('click', () => installWindow.style.display = 'none')
   installBtn.addEventListener('click', () => {
     installApp()
     installWindow.style.display = 'none'
@@ -84,7 +85,8 @@ const installApp = () => {
   defenderPrompt.userChoice
     .then(choice => {
       if (choice.outcome === 'accepted') {
-        //alert('Приложение установлено')        
+        //alert('Приложение установлено')
+        fetch('https://pobeda75.online/api/count/add')
       } else {
         alert('Не удается установить приложение')
       }

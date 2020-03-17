@@ -67,7 +67,7 @@ const News = props => {
 					{fullNews &&
 						fullNews.map(item => {
 							return item.images ? (
-								<Section title='Фото и видео' color='black' type='gallery'>
+								<Section key={item._id+1} title='Фото и видео' color='black' type='gallery'>
 									{item.videos &&
 										item.videos.map((video, id) => (
 											<article key={id} className='gallery-card'>
@@ -95,13 +95,13 @@ const News = props => {
 												onClick={() => {
 													setOpen({
 														open: true,
-														photo: `http://localhost:4000/upload/${items}`,
+														photo: `https://pobeda75.online/upload/${items}`,
 													})
 												}}
 											>
 												<div className='gallery-card__img-container'>
 													<img
-														src={`http://localhost:4000/upload/${items}`}
+														src={`https://pobeda75.online/upload/${items}`}
 														alt=''
 														className='gallery-card__img'
 													/>

@@ -20,7 +20,7 @@ export default (state = initialState, { type, payload }) => {
 			return {
 				...state,
 				items: state.items.filter(item => {
-          if (item._id === state.currentID) {
+          if (item._id === payload._id) {
             return  Object.assign(item, payload)
           }
           return item;

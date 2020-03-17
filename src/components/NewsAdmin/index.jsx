@@ -1,16 +1,16 @@
 import React, { useState } from "react"
 import PropTypes from "prop-types"
-import { Button, Drawer, Input, Icon, Select } from "antd"
+import { Button, Drawer, Input, Icon } from "antd"
 
 import "./style.scss"
 const NewsAdmin = props => {
-	const { base, def, set, addImages, save, currentID } = props
+	const { base, def, set, addImages, save, currentID, video, setVideo } = props
 
 	const [cities, setCities] = useState(false)
 
 	return (
 		<div className='block'>
-			<h3>Учасники</h3>
+			<h3>Новости</h3>
 			<Button type='primary' onClick={() => setCities(true)}>
 				Добавить новость...
 			</Button>
@@ -65,9 +65,12 @@ const NewsAdmin = props => {
 						<label htmlFor='title'>Ссылка на видео с Youtube</label>
 						<Input
 							id='title'
-							//value={`ссылка`}
-							onChange={e => set(prev => ({ ...prev, videos: prev.videos.concat(e.target.value)}))}
-						/>
+							value={video}
+							onChange={e => {
+								setVideo(e.target.value)
+								
+							}}
+						/><Button type='default' onClick={()=> set(prev => ({ ...prev, videos: prev.videos.concat(video) }))}>+</Button>
 					</div>
 					<div className='create__footer'>
 						<div
@@ -91,8 +94,9 @@ const NewsAdmin = props => {
 							</Button>
 							<Button
 								onClick={() => {
-									save()
+									//addVideo()
 									setCities(false)
+									save()
 								}}
 								type='primary'
 							>

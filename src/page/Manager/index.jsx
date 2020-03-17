@@ -1,11 +1,9 @@
-import React, { useState } from "react"
-import PropTypes from "prop-types"
-import { Tabs, Button, Drawer, Input, Upload } from "antd"
-import { UploadOutlined } from "@ant-design/icons-svg"
+import React from "react"
+import { Tabs } from "antd"
 import { withRouter } from 'react-router-dom'
 
 import { Section } from "../../components"
-import { Cities, People, News } from '../../container'
+import { Cities, People, News, AdAdmin } from '../../container'
 const Manager = props => {
 	const { TabPane } = Tabs
 	
@@ -16,7 +14,7 @@ const Manager = props => {
 					<Cities />
 				</TabPane>
 				<TabPane tab={"Реклама"} key='2'>
-					Реклама
+					<AdAdmin />
 				</TabPane>
 				<TabPane tab={"Учасники"} key='3'>
 					<People />
@@ -31,7 +29,5 @@ const Manager = props => {
 		</Section>
 	)
 }
-
-Manager.propTypes = {}
 
 export default withRouter(Manager)

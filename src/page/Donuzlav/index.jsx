@@ -3,32 +3,8 @@ import ReactPlayer from 'react-player'
 
 import { Header, Section, Footer } from "../../components"
 const Donuzlav = props => {
-	return (
-		<>
-			<Header photo title='Донузлав' don />
-			<section className='screen-section'>
-				<div className='screen-section__title screen-section__title_orange'>
-					<h2>Описание</h2>
-				</div>
-				<div className='wrapper'>
-					<div className='description'>
-						Комитетом по молодежной политике Ростовской области при поддержке
-						Федерального агентства по делам молодежи (Росмолодежь) запланировано
-						проведение молодежного образовательного форума Южного федерального
-						округа «Ростов» и федеральной площадки «Молодые аграрии»,
-						участниками которого станут более 1000 молодых людей, включая
-						студентов высших учебных заведений Ростовской области. В работе
-						форума примет участие молодежь в возрасте от 18 до 30 лет
-					</div>
-				</div>
-
-				<div className='screen-section__title screen-section__title_black'>
-					<h2>Социальные сети</h2>
-				</div>
-
-				<div className='wrapper'>
-					<div className='organistors'>
-						<article className='card'>
+	/**
+	 * <article className='card'>
 							<div className='card__wrapepr'>
 								<div className='card__img-container'>
 									<img src='./img/03.png' alt='' className='card__img' />
@@ -83,19 +59,41 @@ const Donuzlav = props => {
 								</p>
 							</div>
 						</article>
+	 */
+	return (
+		<>
+			<Header photo title='Донузлав' don />
+			<section className='screen-section'>
+				<div className='screen-section__title screen-section__title_orange'>
+					<h2>Описание</h2>
+				</div>
+				<div className='wrapper'>
+					<div className='description'>
+						Комитетом по молодежной политике Ростовской области при поддержке
+						Федерального агентства по делам молодежи (Росмолодежь) запланировано
+						проведение молодежного образовательного форума Южного федерального
+						округа «Ростов» и федеральной площадки «Молодые аграрии»,
+						участниками которого станут более 1000 молодых людей, включая
+						студентов высших учебных заведений Ростовской области. В работе
+						форума примет участие молодежь в возрасте от 18 до 30 лет
+					</div>
+				</div>
 
+				<div className='screen-section__title screen-section__title_black'>
+					<h2>Социальные сети</h2>
+				</div>
+
+				<div className='wrapper'>
+					<div className='organistors'>
 						<article className='card'>
-							<div className='card__wrapepr'>
+							<a href='https://vk.com/donuzlav_2019' target="_blank"><div className='card__wrapepr'>
 								<div className='card__img-container'>
 									<img src='./img/04.png' alt='vk' className='card__img' />
 								</div>
 
-								<h3 className='card__title'>Виктор Дерябкин</h3>
+								<h3 className='card__title'>Лагерь Донузлав</h3>
 
-								<p className='card__description'>
-									Депутат Государственной Думы Федерального Собрания РФ
-								</p>
-							</div>
+							</div></a>
 						</article>
 					</div>
 				</div>

@@ -108,6 +108,9 @@ const Header = props => {
 		}
 	}, [showID, current])
 	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
+	useEffect(() => {
 		people()
 	}, [people])
 	let interval
@@ -144,6 +147,7 @@ const Header = props => {
 									state={{
 										center: [item.lat, item.lng],
 										zoom: 12,
+										//behaviors: ["nodrag", "scrollZoom"]
 									}}
 									width='100%'
 									height='100vh'
@@ -180,7 +184,7 @@ const Header = props => {
 				>
 					<Slider {...settings}>
 						{support.map((item, id) => (
-							<a key={id} href={`${item.link}`} target='_blank'>
+							<a key={id} rel="noopener noreferrer" href={`${item.link}`} target='_blank'>
 								<CardSlider
 									key={id}
 									image={`https://pobeda75.online/upload/${item.avatar}`}
@@ -196,7 +200,7 @@ const Header = props => {
 
 			{filterBase &&
 				filterBase.map(item => {
-					return item.images.length > 0 ? (
+					return item.images.length > 0 && (
 						<Section
 							key={item._id + 1}
 							color='black'
@@ -231,13 +235,13 @@ const Header = props => {
 											onClick={() => {
 												setOpen({
 													open: true,
-													photo: `http://localhost:4000/upload/${items}`,
+													photo: `https://pobeda75.online/upload/${items}`,
 												})
 											}}
 										>
 											<div className='gallery-card__img-container'>
 												<img
-													src={`http://localhost:4000/upload/${items}`}
+													src={`https://pobeda75.online/upload/${items}`}
 													alt=''
 													className='gallery-card__img'
 												/>
@@ -253,8 +257,6 @@ const Header = props => {
 								/>
 							)}
 						</Section>
-					) : (
-						<span>нету фоток</span>
 					)
 				})}
 		</>

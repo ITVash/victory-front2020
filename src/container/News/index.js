@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react"
 import { connect } from "react-redux"
 
-import { newsAction } from "../../redux/actions"
+import { newsAction, NotifiAction } from "../../redux/actions"
 import { attachments } from "../../api"
 import { NewsAdmin } from "../../components"
 
 const News = props => {
-  const { baseNews, current, currentIDN, news, updateNews, addNews } = props
+  const { baseNews, current, currentIDN, news, updateNews, addNews, sendMessages } = props
   const [images, setImages] = useState({images:[]})
-  const [ videos, setVideos] = useState(null)
+  const [ video, setVideo] = useState("")
 	const [obj, setObj] = useState({
 		title: "Название",
 		body: "Текст",
@@ -31,7 +31,7 @@ const News = props => {
     setObj(prev => ({ ...prev, images: prev.images.concat(data) }))
     setImages(prev => ({ ...prev, images: prev.images.concat(photo) }))
   }
-  window.obj = images
+  window.vid = video
   const save = () => {
     const data = new FormData()
     if (images.images.length > 0) {
@@ -43,7 +43,12 @@ const News = props => {
     if (current === obj._id) {
 			updateNews(current, obj)
 		} else {
-			addNews(obj)
+      addNews(obj)
+      /*const send = {
+        title: obj.title,
+        body: obj.body.substr(0, 200)
+      }*/
+      //sendMessages(send)
 		}
     setObj({
       title: "Название",
@@ -51,7 +56,8 @@ const News = props => {
       images: [],
       videos: [],
     })
-    setImages({images:[]})
+    setImages({ images: [] })
+    setVideo("")
   }
 	return (
 		<NewsAdmin
@@ -62,11 +68,13 @@ const News = props => {
 			set={setObj}
       save={save}
       addImages={addImages}
+      video={video}
+      setVideo={setVideo}
 		/>
 	)
 }
 
 export default connect(
 	({ News }) => ({ baseNews: News.items, current: News.currentID }),
-	{ ...newsAction },
+	{ ...newsAction, ...NotifiAction },
 )(News)

@@ -10,7 +10,7 @@ self.addEventListener('push', event => {
 })
 
 self.addEventListener('notificationclick', e => {
-  const url = 'https://pobeda75.web.app'
+  const url = 'https://pobeda75.online'
   const notifi = e.notification
   //const primaryKey = await notifi.data.primaryKey
   const action = e.action

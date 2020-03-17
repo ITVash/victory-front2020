@@ -12,27 +12,19 @@ import * as serviceWorker from "./serviceWorker"
 import { subscribeUser } from './subscribe'
 
 import store from './redux/store'
+import { AuthAction } from './redux/actions'
 window.store = store
-/*import { AuthAction } from './redux/actions'
 
 const token = localStorage.getItem('token')
 if (token) {
   const dec = jwtDecode(token)
   if (dec.exp * 1000 > Date.now()) {
-    const data = dec.user[0]
-    const obj = {
-      login: data.login,
-      firstName: data.firstName,
-      lastName: data.lastName,
-      access: data.access,
-      smena: data.smena
-    }
-    store.dispatch(AuthAction._login(obj))
+    store.dispatch(AuthAction.getMe())
   } else {
     //localStorage.removeItem('token')
     store.dispatch(AuthAction.logout())
   }
-}*/
+}
 
 ReactDOM.render(<Provider store={store}><Router><App /></Router></Provider>, document.getElementById("root"))
 

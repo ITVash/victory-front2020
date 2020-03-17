@@ -87,7 +87,7 @@ code {
 	//min-height: 100vh;
 
 	display: flex;
-	flex: 1 1 auto;
+	flex: 0 1 auto;
 
 	flex-direction: column;
 	&.second {
@@ -176,6 +176,12 @@ code {
   transform: translate(-50%, -50%);
 	z-index: 9999;
 	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+	& span {
+		position: absolute;
+		right: 3px;
+		top: 1px;
+		cursor: pointer;
+	}
 	& button {
 		padding: 5px 10px;
 		border-radius: 5px;
