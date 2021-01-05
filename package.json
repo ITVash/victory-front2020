@@ -84,7 +84,7 @@
   "devDependencies": {
     "@ant-design/icons-svg": "^4.0.0",
     "antd": "^3.26.11",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "classnames": "^2.2.6",
     "cra-append-sw": "^2.7.0",
     "jwt-decode": "^2.2.0",
