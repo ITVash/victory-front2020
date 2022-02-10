@@ -92,7 +92,7 @@
     "moment": "^2.24.0",
     "moment-countdown": "0.0.3",
     "moment-timezone": "^0.5.27",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "react-image-lightbox": "^5.1.1",
     "react-items-carousel": "^2.8.0",
     "react-player": "^1.15.2",
